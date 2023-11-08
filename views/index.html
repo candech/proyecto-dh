@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Rock</title>
+    <link rel="stylesheet" href="/static/css/styles.css"> <!--si no funciona cambiar por /public-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Pizza Rock</h1>
+        <div class="logo">
+            <img src="/static/img/logo-pizzeria.jpg" alt="Pizza Rock Logo">
+        </div>
+        <div class="header-buttons">
+            <a class="login-button" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+            <a class="cart-button" href="/carrito">Carrito <i class="fas fa-shopping-basket"></i></a>
+        </div>        
+    </header>
+    <div class="banner">
+        <div class="banner-slide"><img src="/static/img/img-prueba-1.jpg" alt="Imagen 1"></div>
+        <div class="banner-slide"><img src="/static/img/img-prueba-2.jpg" alt="Imagen 2"></div>    
+    </div>
+    <div class="subtitulo">
+        <h2>Carta</h2>
+    </div>
+    <section id="menu">                
+        <div class="menu-list">            
+            <div class="pizza-item" data-index="0">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $10</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <button class="add-to-cart-button">Agregar al Carrito</button>
+            </div>
+            <div class="pizza-item" data-index="1">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $20</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <button class="add-to-cart-button">Agregar al Carrito</button>
+            </div>
+            <div class="pizza-item" data-index="2">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $30</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <button class="add-to-cart-button">Agregar al Carrito</button>
+            </div>
+            <!-- Agregar más elementos de menú según sea necesario -->
+        </div>
+        <div class="product-details">
+            <h3>Detalles del Producto</h3>
+            <div class="product-info"></div>
+        </div>
+    </section>
+    <div class="subtitulo">
+        <h2>Galería</h2>
+    </div>    
+    <div class="gallery">        
+        <img src="/static/img/img-prueba-1.jpg" alt="Foto 1">
+        <img src="/static/img/img-prueba-2.jpg" alt="Foto 2">       
+    </div>
+    <footer>
+        <p>Nuestras Redes Sociales</p>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <p>&copy; 2023 Pizza Rock. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
