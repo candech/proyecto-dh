@@ -8,6 +8,14 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html")
 });
 
+app.get("/productDetail", (req, res) => {
+    res.sendFile(__dirname + "/views/productDetail.html")
+});
+
+app.get("/cart", (req, res) => {
+    res.sendFile(__dirname + "/views/.html") /*Aquí poner el .html del carrito*/
+});
+
 app.listen(PORT, () => {
     console.log("Escuchando al puerto " + PORT);
 });
