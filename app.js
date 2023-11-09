@@ -12,8 +12,8 @@ app.get("/productDetail", (req, res) => {
     res.sendFile(__dirname + "/views/productDetail.html")
 });
 
-app.get("/cart", (req, res) => {
-    res.sendFile(__dirname + "/views/.html") /*Aquí poner el .html del carrito*/
+app.get("/productCart", (req, res) => {
+    res.sendFile(__dirname + "/views/productCart.html") /*Aquí poner el .html del carrito*/
 });
 
 app.listen(PORT, () => {

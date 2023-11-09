@@ -177,9 +177,21 @@ header h1 {
         padding: 8px 12px; /* Tamaño de botón reducido para pantallas pequeñas */
         font-size: 12px;
     }
-
-    /* Estilos adicionales según sea necesario para pantallas pequeñas */
+    .img-pizza{
+        display: none;
+    }
+.box-4,.box-3, .box-2{
+    display: flex;
+    flex-wrap: wrap;
+    
 }
+
+    .des{
+        display: none;
+    }
+}
+    /* Estilos adicionales según sea necesario para pantallas pequeñas */
+
 
 section {
     padding: 20px;
@@ -202,3 +214,143 @@ footer {
     padding: 10px;    
     width: 100%;
 }
+
+/*ESTILOS DEL CARRITO*/
+
+.box-4{
+    margin-left: 5px;
+    padding-right: 30px ;
+    width: 100%;
+    color: #000000;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-3{
+    align-self: center;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    padding-right: 50px;
+}
+.barra1{
+   
+ color: black;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    border-bottom: solid 1px #555;
+    
+}
+.barra2{
+    color: black;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+}
+
+.producto, .precio, .cantidad, .eliminar{
+    margin-bottom: 5px;
+    
+ }
+.box-2{
+    margin: 25px 0 25px;
+    border-radius: 4px;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+.box-1{
+    color: black;
+    text-align: center;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px; 
+    
+}
+
+.icono-camion i{
+width: 4em;
+color: #acacac;
+transition: transform 1s;
+transition: color 1s;
+}
+.icono-camion i:hover{
+    transition: transform 0.3s ease;
+    transform: rotate(-90deg);
+    color: #ded337;
+
+}
+.direc-bar{
+    width: 97%;
+    border:solid 0.5px #acacac;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.img-pizza img{
+    width: 10vw;
+    margin: 250px 0 0 10px;
+}
+*{
+    list-style-type: none;
+}
+
+.button-box{
+    width: 100%;
+    background-color: #333; /* Fondo del botón */
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Esquinas redondeadas */
+    padding: 10px ;
+    
+    cursor: pointer;
+    font-size: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+
+
+.bnt-eliminar {
+    background-color: #333;
+    width: 100%;
+    height: 10%;
+    padding: 10px ;
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Esquinas redondeadas */
+    padding: 10px ;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    margin-top: 40px;
+    transition: background-color 0.3s ease;
+}
+
+
+.boton-suma{
+    
+    color: black;
+    cursor: pointer;
+    background-color: #333; /* Fondo del botón */
+    color: #fff;
+    border: none;
+    border-radius: 4px; /* Esquinas redondeadas */
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+}
+.boton-suma:hover, .button-box:hover , .bnt-eliminar:hover{
+    background-color: #555
+}
+
+/*ESTILOS DEL CARRITO*/
