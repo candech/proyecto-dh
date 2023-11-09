@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Rock</title>
+    <link rel="stylesheet" href="/static/css/styles.css"> <!--si no funciona cambiar por /public-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/9da115e1a3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Pizza Rock</h1>
+        <div class="logo">            
+            <a href="/"><img src="/static/img/logo-pizzeria.jpg" alt="Pizza Rock Logo"></a>
+        </div>
+        <div class="header-buttons">
+            <a class="login-button" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+            <a class="cart-button" href="/productCart">Carrito <i class="fas fa-shopping-basket"></i></a> <!--Falta la página del carrito-->
+        </div>        
+    </header>
+    <h2 class="titulo">MI CARRITO
+    </h2>
+    <article class="box-4">
+        <div class="img-pizza">
+            <img src="static/img/img-pizza.png" alt="Imagen 1"> 
+        </div>
+    <article class="box-3" >
+        
+        <div class="producto">
+            <ul >
+            <li class="barra1">Producto</li>
+            <br>
+            <br>
+            <li class="barra2">Pizza Margherita</li>
+            </ul>
+        </div>
+        <div class="precio">
+        <ul>
+            <li class="barra1">Precio</li>
+            <br>
+            <br>
+            <li class="barra2">$20</li>
+        </ul>
+        </div>
+        <div class="cantidad">
+            <ul>
+            <li class="barra1">Cantidad</li>
+            <br>
+            <br>
+            <li class="barra2"><button class="boton-suma" type="number">- | 1 | + </button></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="eliminar">
+                <li class="des"><br></li>
+                    <li class="barra2"> <input type="reset" value="VACIAR CARRITO" class="bnt-eliminar" ></i></li>
+            </ul>
+        </div>
+            </div>
+        </article>
+    <article class="box-2" >
+        <div class="box-1">
+            <p class="total">Total del carrito</p>
+        </div>
+        <div class="box-1">
+            <p>Subtotal</p>
+            
+            <p>$20</p>
+        </div>
+        <div class="box-1">
+            <p>Envio</p>
+            <div class="icono-camion">
+            <i  class="fa-solid fa-truck-arrow-right"  ></i>
+            </div>
+            <br>
+            <input type="text" placeholder="Ingrese su dirección" class="direc-bar">
+        </div>
+        <div class="box-1">
+            <p>Total</p>
+            
+            <p>$20</p>
+        </div>
+            <div >
+                <br>
+            <button class="button-box" type="text">FINALIZAR COMPRA</button>
+                <br>
+                <br>
+            <button class="button-box" type="text">CONTINUAR COMPRANDO</button>
+        </div>
+    </article>
+    </article>
+    <footer>
+        <p>Nuestras Redes Sociales</p>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <p>&copy; 2023 Pizza Rock. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
