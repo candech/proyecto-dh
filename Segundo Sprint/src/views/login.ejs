@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--vistas parciales-->
+    <%- include('./partials/head', {title: "Login"}) %>
+
+    <%- include('./partials/header') %>
+    <!--vistas parciales-->
+    <body>
+        <div class="form-container">
+            <div class="login-container">
+                <main class="login">
+                    <form action="/" method="POST">
+                        <input type="text" name="user" placeholder="Nombre de usuario">
+                        <input type="password" name="pass" placeholder="Elegí tu contraseña">
+                        <a href="/olvido-contrasena">¿Olvidaste tu contraseña?</a> <!-- Enlace para restablecer la contraseña -->
+                        <input type="submit" value="Enviar">
+                    </form>
+                </main>
+            </div>
+        </div>    
+    </body>
+
+
+</html>

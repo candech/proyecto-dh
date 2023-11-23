@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head', {title: "Inicio"} ) %>
+<body>
+    <%- include('partials/header') %>
+    <div class="banner">
+        <div class="banner-slide"><img src="/img/img-prueba-1.jpg" alt="Imagen 1"></div>
+        <div class="banner-slide"><img src="/img/img-prueba-2.jpg" alt="Imagen 2"></div>    
+    </div>
+    <div class="subtitulo">
+        <h2>Carta</h2>
+    </div>
+    <section id="menu">                
+        <div class="menu-list">            
+            <div class="pizza-item" data-index="0">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $10</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <a class="add-to-cart-button" href="/cart">Agregar al Carrito</a> <!--Falta la página del carrito-->               
+            </div>
+            <div class="pizza-item" data-index="1">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $20</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <a class="add-to-cart-button" href="/cart">Agregar al Carrito</a> <!--Falta la página del carrito-->
+            </div>
+            <div class="pizza-item" data-index="2">
+                <h3>Pizza Margherita</h3>
+                <p>Salsa de tomate, mozzarella, albahaca fresca</p>
+                <p>Precio: $30</p>
+                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+                <a class="add-to-cart-button" href="/cart">Agregar al Carrito</a> <!--Falta la página del carrito-->
+            </div>
+            <!-- Agregar más elementos de menú según sea necesario -->
+        </div>
+        <div class="product-details">
+            <h3>Detalles del Producto</h3>
+            <div class="product-info"></div>
+        </div>        
+    </section>
+    <div class="subtitulo">
+        <h2>Galería</h2>
+    </div>    
+    <div class="gallery">        
+        <img src="/img/img-prueba-1.jpg" alt="Foto 1">
+        <img src="/img/img-prueba-2.jpg" alt="Foto 2">       
+    </div>
+    <%- include('partials/footer') %>
+</body>
+</html>

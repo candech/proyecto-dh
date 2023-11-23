@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--vistas parciales-->
+    <%- include('./partials/head', {title: "Register"}) %>
+
+    <%- include('./partials/header') %>
+    <!--vistas parciales-->
+<body>
+    <div class="form-container">
+
+    </div>
+    <div class="register-container">
+        <h2>Registro</h2>
+        <form id="register-form">
+            <label for="nombre">Nombre</label>
+            <br>
+            <input type="text" id="nombre" name="nombre" required>
+            <br>
+            <br>
+            <label for="apellido">Apellido</label>
+            <br>
+            <input type="text" id="apellido" name="apellido" required>
+            <br>
+            <br>
+            <label for="email">Correo Electrónico</label>
+            <br>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <br>
+            <label for="password">Contraseña</label>
+            <br>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <br>
+            <label for="confirm-password">Confirmar Contraseña</label>
+            <br>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <br>
+            <p id="password-match-error" class="error-message"></p>
+            <button type="submit" id="register-button" class="yellow-button">Registrarse</button>
+        </form>
+
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head', {title: "Carrito"}) %>
+<body>
+    <%- include('./partials/header') %>
+    <h2 class="titulo">MI CARRITO</h2>
+    <article class="box-4">
+        <div class="img-pizza">
+            <img src="/img/img-pizza.png" alt="Imagen 1"> 
+        </div>
+    <article class="box-3" >
+        
+        <div class="producto">
+            <ul >
+            <li class="barra1">Producto</li>
+            <br>
+            <br>
+            <li class="barra2">Pizza Margherita</li>
+            </ul>
+        </div>
+        <div class="precio">
+        <ul>
+            <li class="barra1">Precio</li>
+            <br>
+            <br>
+            <li class="barra2">$20</li>
+        </ul>
+        </div>
+        <div class="cantidad">
+            <ul>
+            <li class="barra1">Cantidad</li>
+            <br>
+            <br>
+            <li class="barra2"><button class="boton-suma" type="number">- | 1 | + </button></li>
+            </ul>
+        </div>
+        <div>
+            <ul class="eliminar">
+                <li class="des"><br></li>
+                    <li class="barra2"> <input type="reset" value="VACIAR CARRITO" class="bnt-eliminar" ></i></li>
+            </ul>
+        </div>
+            </div>
+        </article>
+    <article class="box-2" >
+        <div class="box-1">
+            <p class="total">Total del carrito</p>
+        </div>
+        <div class="box-1">
+            <p>Subtotal</p>
+            
+            <p>$20</p>
+        </div>
+        <div class="box-1">
+            <p>Envio</p>
+            <div class="icono-camion">
+            <i  class="fa-solid fa-truck-arrow-right"  ></i>
+            </div>
+            <br>
+            <input type="text" placeholder="Ingrese su dirección" class="direc-bar">
+        </div>
+        <div class="box-1">
+            <p>Total</p>
+            
+            <p>$20</p>
+        </div>
+            <div >
+                <br>
+            <button class="button-box" type="text">FINALIZAR COMPRA</button>
+                <br>
+                <br>
+            <button class="button-box" type="text">CONTINUAR COMPRANDO</button>
+        </div>
+    </article>
+    </article>
+    <%- include('./partials/footer') %>
+</body>
+</html>
