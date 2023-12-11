@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainControllers')
+const multer = require('multer');
 
 router.get('/', mainController.index)
 router.get('/login', mainController.login)
