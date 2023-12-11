@@ -44,14 +44,15 @@ const mainControllers = {
 	// Update - Method to update
 	update: (req, res) => {
 		const idProd = req.params.id;
-		const {name,price, discount,category, description} = req.body
+		const {name, description, category, type, price} = req.body
 		const indexProd = products.findIndex((producto) => producto.id == idProd);
 		if(indexProd !== -1){
 			products[indexProd].name = name;
-			products[indexProd].price = price;
-			products[indexProd].discount = discount;
-			products[indexProd].category = category;
 			products[indexProd].description = description;
+			products[indexProd].category = category;
+			products[indexProd].type = type;
+			products[indexProd].price = price;
+
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
 			console.log("producto actualizado correctamente")
 			res.redirect('/')
