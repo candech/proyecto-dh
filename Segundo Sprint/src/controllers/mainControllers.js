@@ -20,7 +20,7 @@ const mainControllers = {
         res.render ('register')
     },
 
-    productCart: (req, res) =>{
+    /*productCart: (req, res) =>{
         res.render('productCart')
     },
 
@@ -58,7 +58,7 @@ const mainControllers = {
 		}
 		console.log()
 		//res.send("Producto editado");
-	},
+	},*/
 };
 
 module.exports = mainControllers;

@@ -1,4 +1,22 @@
-const products ={
+const productsControllers ={
+	productDetail: (req, res) =>{
+		const idProd = req.params.id;
+		const producto = products.find(producto => producto.id == idProd);
+		res.render('productDetail', {producto, toThousand});        
+    },
+	store: (req, res) => {
+		try{
+			const newProduct = {id: products.length + 1, ...req.body, image: req.file.filename};
+			products.push(newProduct);
+			fs.writeFileSync(productsFilePath, JSON.stringify(products));
+			res.redirect('/products');
+		}catch(error){
+			console.log('error: ', error);
+		}
+	},
+	productCart: (req, res) =>{
+        res.render('productCart')
+    },
     productCreate: (req, res) =>{
         res.render('productCreate')
     },
@@ -29,3 +47,5 @@ const products ={
 		
 	},
 }
+
+module.exports = productsControllers;
