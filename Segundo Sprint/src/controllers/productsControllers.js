@@ -1,8 +1,27 @@
+const fs = require('fs');
+const path = require('path');
+
+const productsFilePath = path.join(__dirname, '../data/products.json');
+let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //toma un número como entrada y devuelve una cadena con el número formateado con comas como separadores de miles
+
 const productsControllers ={
+	index: (req, res) =>{
+        res.render ('products')
+    },
 	productDetail: (req, res) =>{
 		const idProd = req.params.id;
-		const producto = products.find(producto => producto.id == idProd);
-		res.render('productDetail', {producto, toThousand});        
+		const productDetail = products.find(producto => producto.id == idProd);
+		res.render('detail', {productDetail});      
+    },
+	
+	productCart: (req, res) =>{
+        res.render('productCart')
+    },
+	//creacion de productos
+    productCreate: (req, res) =>{
+        res.render('productCreate')
     },
 	store: (req, res) => {
 		try{
@@ -14,19 +33,13 @@ const productsControllers ={
 			console.log('error: ', error);
 		}
 	},
-	productCart: (req, res) =>{
-        res.render('productCart')
-    },
-    productCreate: (req, res) =>{
-        res.render('productCreate')
-    },
-    // Update - Form to edit
+    // edicion de productos
 	edit: (req, res) => {
 		const idProd = req.params.id;
 		const producto = products.find(producto => producto.id == idProd);
 		res.render('productEdit', {producto});
 	},
-	// Update - Method to update
+	// actualización de productos
 	update: (req, res) => {
 		const idProd = req.params.id;
 		const {name, price, discount, category, description} = req.body
@@ -46,6 +59,14 @@ const productsControllers ={
 		}
 		
 	},
+	destroy: (req, res) => {
+		let idProd = req.params.id;
+		products = products.filter((producto) => producto.id != idProd)
+		fs.writeFileSync(productsFilePath, JSON.stringify(products));
+		//res.send("Producto eliminado");
+		res.redirect('/')
+		console.log('producto eliminado')
+	}
 }
 
 module.exports = productsControllers;
