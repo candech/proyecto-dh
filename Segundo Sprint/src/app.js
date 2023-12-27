@@ -3,7 +3,7 @@ const express = require('express');
 const path = require ('path');
 const PORT = process.env.PORT || 3002;
 const methodOverride =  require('method-override');
-//const bodyparser = require('body-parser');
+const bodyparser = require('body-parser');
 
 // ************ express() ************
 const app = express();
@@ -20,8 +20,8 @@ const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users');
 
 app.use('/', mainRouter);
-app.use('/products', productsRouter);
-app.use('/users', usersRouter);
+app.use('/', productsRouter);
+app.use('/', usersRouter);
 
 // ************ Template Engin ************
 app.set('view engine', 'ejs');
