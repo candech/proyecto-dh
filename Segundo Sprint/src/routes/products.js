@@ -11,10 +11,10 @@ router.get('/productCart', productsController.productCart);
 
 
 /********** LISTADO DE PRODUCTOS  **********/
-router.get('/', productsController.index);
+router.get('/products', productsController.index);
 
 /********** CREACIÓN DE PRODUCTOS  **********/
-router.get('/create', productsController.productCreate)
+router.get('/productCreate', productsController.productCreate)
 router.post('/',uploadFile.single("image"),productsController.store)
 
 /********** DETALLE DE PRODUCTO  **********/

@@ -11,6 +11,7 @@ const productsControllers ={
 	index: (req, res) =>{
         res.render ('products')
     },
+
 	productDetail: (req, res) =>{
 		const idProd = req.params.id;
 		const productDetail = products.find(producto => producto.id == idProd);
@@ -20,10 +21,11 @@ const productsControllers ={
 	productCart: (req, res) =>{
         res.render('productCart')
     },
-	//creacion de productos
+
     productCreate: (req, res) =>{
         res.render('productCreate')
     },
+
 	store: (req, res) => {
 		try{
 			const newProduct = {id: products.length + 1, ...req.body, image: req.file.filename};
@@ -34,13 +36,13 @@ const productsControllers ={
 			console.log('error: ', error);
 		}
 	},
-    // edicion de productos
+
 	edit: (req, res) => {
 		const idProd = req.params.id;
 		const producto = products.find(producto => producto.id == idProd);
 		res.render('productEdit', {producto});
 	},
-	// actualización de productos
+
 	update: (req, res) => {
 		const idProd = req.params.id;
 		const {name, price, discount, category, description} = req.body
@@ -60,6 +62,7 @@ const productsControllers ={
 		}
 		
 	},
+
 	destroy: (req, res) => {
 		let idProd = req.params.id;
 		products = products.filter((producto) => producto.id != idProd)
