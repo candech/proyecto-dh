@@ -8,25 +8,21 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //toma un número como entrada y devuelve una cadena con el número formateado con comas como separadores de miles
 
 const productsControllers ={
-	index: (req, res) =>{
-        res.render ('products')
+	productIndex: (req, res) =>{
+        res.render ('productIndex')
+    },	
+
+    productCreate: (req, res) =>{
+        res.render('productCreate')
     },
 
 	productDetail: (req, res) =>{
 		const idProd = req.params.id;
 		const productDetail = products.find(producto => producto.id == idProd);
 		res.render('detail', {productDetail});      
-    },
-	
-	productCart: (req, res) =>{
-        res.render('productCart')
-    },
+    },	
 
-    productCreate: (req, res) =>{
-        res.render('productCreate')
-    },
-
-	store: (req, res) => {
+	productStore: (req, res) => {
 		try{
 			const newProduct = {id: products.length + 1, ...req.body, image: req.file.filename};
 			products.push(newProduct);
@@ -37,13 +33,13 @@ const productsControllers ={
 		}
 	},
 
-	edit: (req, res) => {
+	productEdit: (req, res) => {
 		const idProd = req.params.id;
 		const producto = products.find(producto => producto.id == idProd);
 		res.render('productEdit', {producto});
 	},
 
-	update: (req, res) => {
+	productUpdate: (req, res) => {
 		const idProd = req.params.id;
 		const {name, price, discount, category, description} = req.body
 		const indexProd = products.findIndex((producto) => producto.id == idProd);
@@ -63,14 +59,18 @@ const productsControllers ={
 		
 	},
 
-	destroy: (req, res) => {
+	productDestroy: (req, res) => {
 		let idProd = req.params.id;
 		products = products.filter((producto) => producto.id != idProd)
 		fs.writeFileSync(productsFilePath, JSON.stringify(products));
 		//res.send("Producto eliminado");
 		res.redirect('/')
 		console.log('producto eliminado')
-	}
+	},	
+	
+	productCart: (req, res) =>{
+        res.render('productCart')
+    }
 }
 
 module.exports = productsControllers;
