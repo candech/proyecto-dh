@@ -12,7 +12,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));// Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
 
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main'); // Rutas main
@@ -20,8 +20,8 @@ const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users');
 
 app.use('/', mainRouter);
-app.use('/', productsRouter);
-app.use('/', usersRouter);
+app.use('/products', productsRouter);
+app.use('/usuarios', usersRouter);
 
 // ************ Template Engin ************
 app.set('view engine', 'ejs');

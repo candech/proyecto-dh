@@ -7,20 +7,15 @@
 	<!-- Header -->
 
 	<!-- products -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Todos los productos</h2>
-			</div>
-
+				<h2 >Todos los productos</h2>
 			<% for (product of products) { %>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/products/detail/<%= product.id %>">
+			<div>
+				<section>
+					<a href="/products/productDetail<%= product.id %>">
 						<figure class="product-box_image">
-							<img src="/images/products/<%= product.image %>" alt="imagen de producto">
+							<img src="/img/products/<%= product.image %>" alt="imagen de producto">
 						</figure>
-						<article class="product-box_data">
+						<article >
 							<h2>$<%= product.price %></h2>
 							<% if (product.discount > 0) {%>
 								<span><%= product.discount %>% OFF</span>

@@ -14,43 +14,36 @@
          <div class="menu-list">          
             <div class="pizza-item" data-index="0">
                 <a href="/products/productDetail">
-                    <figure class="">
-                        <img src="/images/products" alt="imagen de producto">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>FINAL PRICE</h2>
-                        <span>DISCOUNT % OFF</span>
-                        <p>PRODUCT NAME</p>
-                <a class="details-button" href="/productDetail">Ver detalles del producto</a>
-                <a class="add-to-cart-button" href="/cart">Agregar al Carrito</a> 
+
+                
             </div>
            
         </div>
-        <h2 class="products-title">Basado en tu última visita</h2>
+        <h2 class="subtitulo">Basado en tu última visita</h2>
     </div>
 
     <!-- Show the "visited" products -->
     <% for (product of products) { %>
-        <% if (product.category == "visited") { %>
-    <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/products/detail/<%= product.id%>">
-                        <figure class="product-box_image">
-                            <img src="/img/<%= product.image%>" alt="imagen de producto">
-                        </figure>
-                        <article>
-                            <h2>$<%= toThousand(product.price)%></h2>
-                            <% if (product.discount > 0) {%>
-                                <span><%= product.discount%>% OFF</span>
-                            <% } %>
-                            <p><%= product.name%></p>
-                        </article>
-                    </a>
-                </section>
-        
-    </div>
-    <% } %>
-    <% } %>
+        <div>
+            <section>
+                <a href="/products/productDetail<%= product.id %>">
+                    <figure class="product-box_image">
+                        <img src="/img/products/<%= product.image %>" alt="imagen de producto">
+                    </figure>
+                    <article >
+                        <h2>$<%= product.price %></h2>
+                        <% if (product.discount > 0) {%>
+                            <span><%= product.discount %>% OFF</span>
+                        <% } %>
+                        <p><%= product.name %></p>
+                        <i class="fas fa-truck"></i>
+                    </article>
+                </a>
+            </section>
+        </div>
+        <% } %>
+    <a class="details-button" href="/productDetail">Ver detalles del producto</a>
+    <a class="add-to-cart-button" href="/productCart">Agregar al Carrito</a> 
 </div>
 </div>
 <!-- /ultima visita -->
@@ -59,18 +52,18 @@
 <div class="container products-wrapper">
 <div class="row">
     <div class="col-12">
-        <h2 class="products-title">Ofertas</h2>
+        <h2>Ofertas</h2>
     </div>
     <!-- Show the "in-sale" products -->
     <% for (product of products) { %>
         <% if (product.category == "in-sale") { %>
-    <div class="col-12 col-sm-6 col-lg-3">
-        <section class="product-box">
+    <div>
+        <section >
             <a href="/products/detail/<%= product.id%>">
-                <figure class="product-box_image">
+                <figure>
                     <img src="/images/products/<%= product.image%>" alt="imagen de producto">
                 </figure>
-                <article class="product-box_data">
+                <article>
                     <h2>$<%= toThousand(product.price)%></h2>
                     <% if (product.discount > 0) {%>
                         <span><%= product.discount%>% OFF</span>

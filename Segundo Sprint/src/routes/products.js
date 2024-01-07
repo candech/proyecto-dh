@@ -7,11 +7,11 @@ const productsController = require('../controllers/productsControllers');
 const uploadFile = require('../middleware/multer');
 
 /********** LISTADO DE PRODUCTOS  **********/
-router.get('/productIndex', productsController.productIndex);
+router.get('/', productsController.productIndex);
 
 /********** CREACIÓN DE PRODUCTOS  **********/
 router.get('/productCreate', productsController.productCreate)
-router.post('/',uploadFile.single("image"),productsController.productStore)
+router.post('/', uploadFile.single("image"),productsController.productStore)
 
 /********** DETALLE DE PRODUCTO  **********/
 router.get('/productDetail/:id?', productsController.productDetail)

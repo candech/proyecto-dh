@@ -11,7 +11,7 @@ body {
 
 h2{
     text-align: center;
-    color:#fff;
+    color: black;
 }
 
 header {
@@ -99,6 +99,7 @@ header h1 {
     align-items: flex-start;
     flex-direction: row;
     flex-wrap: nowrap;
+    
 }
 
 .menu-list {
