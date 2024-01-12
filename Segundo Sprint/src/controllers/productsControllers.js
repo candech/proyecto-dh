@@ -8,8 +8,8 @@ let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //toma un número como entrada y devuelve una cadena con el número formateado con comas como separadores de miles
 
 const productsControllers ={
-	productIndex: (req, res) =>{
-        res.render('productIndex',{products, toThousand})
+	products: (req, res) =>{
+        res.render('/products',{products, toThousand})
     },	
 
     productCreate: (req, res) =>{
@@ -24,7 +24,7 @@ const productsControllers ={
 
 	productStore: (req, res) => {
 		try{
-			const newProduct = {id: products.length + 1, ...req.body, image: req.file.filename};
+			const newProduct = {id: products.length + 1, ...req.body, image: req.file};
 			products.push(newProduct);
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
 			res.redirect('/products');

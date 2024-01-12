@@ -7,7 +7,7 @@ const productsController = require('../controllers/productsControllers');
 const uploadFile = require('../middleware/multer');
 
 /********** LISTADO DE PRODUCTOS  **********/
-router.get('/', productsController.productIndex);
+router.get('/', productsController.products);
 
 /********** CREACIÓN DE PRODUCTOS  **********/
 router.get('/productCreate', productsController.productCreate)
