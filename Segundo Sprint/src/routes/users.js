@@ -23,8 +23,7 @@ const validateRegisterForm = [
     body('lastName').notEmpty().withMessage('Debes ingresar un apeliido válido'),
     body('email').notEmpty().withMessage('Este campo es obligatorio').bail().isEmail().withMessage('Debes ingresar un email válido'),
     body('type').notEmpty().withMessage('Este campo es obligatorio'),
-    body('password').notEmpty().withMessage('Este campo es obligatorio'),
-    body('confirm-password').notEmpty().withMessage('Este campo es obligatorio'),
+    body('password').notEmpty().withMessage('Este campo es obligatorio').isLength(8).withMessage('La contraseña debe contener al menos 8 caracteres'),
     body('avatar').custom((value, {req}) => {
         let file = req.file;
         if (!file) {

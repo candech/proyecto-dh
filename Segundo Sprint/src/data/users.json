@@ -268,6 +268,14 @@
         "password": "cT0$eIZZ2~",
         "type": "Customer",
         "avatar": "/images/avatars/jala.jpg"
+    },
+    {
+        "id": 31,
+        "firstName": "elsa",
+        "lastName": "pato",
+        "email": "ep@gmail.com",
+        "type": "admin",
+        "password": "$2a$10$qgo5JZ1kUo0sxbe041w1we6/AsDXSIsLz6IAk7tnvWJNhT1earTae",
+        "avatar": "1705124429144_img_.jpg"
     }
-    
 ]

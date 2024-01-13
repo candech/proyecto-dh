@@ -6,7 +6,7 @@ const methodOverride =  require('method-override');
 const createError = require('http-errors');
 const bodyparser = require('body-parser');
 const session = require('express-session');
-
+const bcrypt = require('bcryptjs');
 
 // ************ express() ************
 const app = express();
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
 //app.use(cookieParser());
 //app.use(logger('dev'));
-//app.use(seesion({secret: secret}))
+//app.use(session({secret: 'secret'}))
 
 // ************ Template Engin ************
 app.set('view engine', 'ejs');
