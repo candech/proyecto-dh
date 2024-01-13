@@ -5,21 +5,25 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const usersController = {
-
-    login: (req, res) =>{
-        res.render('login');
-    },
-    procesarLogin: (req, res) => {
-        
-    },
-
     register: (req, res) =>{
         res.render('register')
         
     },
     procesarRegister: (req, res) =>{
-       let errors = validationResult(req);
-       try{
+       const resultValidation = validationResult(req);
+       
+        if(resultValidation.errors.length > 0) {
+            res.render('register', {
+               errors: resultValidation.mapped(),
+               old: req.body,
+           })
+          } else {
+           const newUser = {id: users.length + 1, ...req.body, avatar: req.file.filename};
+           users.push(newUser);
+           fs.writeFileSync(usersFilePath, JSON.stringify(users));
+           res.send('completaste las verificaciones' )
+       }
+     /*  try{
         if(errors.isEmpty()){
             const newUser = {id: users.length + 1, ...req.body, avatar: req.file.filename};
             users.push(newUser);
@@ -31,8 +35,15 @@ const usersController = {
            }
        }catch(err){
         console.log(err)
-       }
-    }
+       }*/
+    },
+    login: (req, res) =>{
+        res.render('login');
+    },
+    procesarLogin: (req, res) => {
+        
+    },
+
 
 };
 

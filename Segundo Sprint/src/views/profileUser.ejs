@@ -1,0 +1,18 @@
+<article class="card">
+    <div class="card-left">
+        <figure>
+            <img src="/img/users/<%= users.avatar ? users.avatar : 'default.jpeg' %>" alt="">
+        </figure>
+        <h3>#<%= users.id %></h3>
+    </div>
+    <div >
+        <h3><%= users.firstName %> <%= users.lastName %></h3>
+        <% if (users.type) { %>
+            <p>Categoría: <%= users.type %></p>
+        <%} %>
+        <p>Email: <a href="<%= users.email %>" target="_blank"><%= users.email %></a></p>
+        <div>
+            <a class="button" href="/users/<%= users.id %>">Ver detalle</a>
+        </div>
+    </div>   
+</article>
