@@ -9,7 +9,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //t
 
 const productsControllers ={
 	products: (req, res) =>{
-        res.render('/products',{products, toThousand})
+        res.render('products',{products, toThousand})
     },	
 
     productCreate: (req, res) =>{
@@ -24,7 +24,7 @@ const productsControllers ={
 
 	productStore: (req, res) => {
 		try{
-			const newProduct = {id: products.length + 1, ...req.body, image: req.file};
+			const newProduct = {id: products.length + 1, ...req.body, image: req.file.filename};
 			products.push(newProduct);
 			fs.writeFileSync(productsFilePath, JSON.stringify(products));
 			res.redirect('/products');
@@ -36,7 +36,7 @@ const productsControllers ={
 	productEdit: (req, res) => {
 		const idProd = req.params.id;
 		const producto = products.find(producto => producto.id == idProd);
-		res.render('/productEdit', {producto});
+		res.render('productEdit', {producto});
 	},
 
 	productUpdate: (req, res) => {

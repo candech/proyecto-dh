@@ -2,11 +2,12 @@
 const express = require('express');
 const path = require ('path');
 const PORT = process.env.PORT || 3002;
-const methodOverride =  require('method-override');
+const methodOverride =  require('method-override');//permite usar los metodos path y delete
 const createError = require('http-errors');
 const bodyparser = require('body-parser');
-const session = require('express-session');
-const bcrypt = require('bcryptjs');
+//const cookieParser = require('cookie-parser');//para las cookies
+const session = require('express-session');//para las sessiones
+const bcrypt = require('bcryptjs');//encriptaciíon de contraseñas
 
 // ************ express() ************
 const app = express();
@@ -18,19 +19,19 @@ app.use(express.json());
 app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
 //app.use(cookieParser());
 //app.use(logger('dev'));
-//app.use(session({secret: 'secret'}))
+app.use(session({secret: 'secret'}));
 
 // ************ Template Engin ************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
-app.use('/user', express.static(path.resolve(__dirname, './views/user')));
-app.use('/producto', express.static(path.resolve(__dirname, './views/producto')));
+/* app.use('/user', express.static(path.resolve(__dirname, './views/user')));
+app.use('/producto', express.static(path.resolve(__dirname, './views/producto'))); */
 
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); //Rutas /users
-var logMiddleware = require('./middleware/logMiddleware');
+/* var logMiddleware = require('./middleware/logMiddleware'); */
 
 /* app.get('/users/', (req, res) => {
   res.redirect('/users/')
@@ -39,7 +40,7 @@ var logMiddleware = require('./middleware/logMiddleware');
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
-app.use(logMiddleware);
+//app.use(logMiddleware);
 
 
 

@@ -271,11 +271,11 @@
     },
     {
         "id": 31,
-        "firstName": "elsa",
-        "lastName": "pato",
-        "email": "ep@gmail.com",
+        "firstName": "juan",
+        "lastName": "perez",
+        "email": "jp@gmail.com",
         "type": "admin",
-        "password": "$2a$10$qgo5JZ1kUo0sxbe041w1we6/AsDXSIsLz6IAk7tnvWJNhT1earTae",
-        "avatar": "1705124429144_img_.jpg"
+        "password": "$2a$10$bddnSWdYpbx8Dm0Sgqbr3eOkPnrCs39hC0imuyGpbuJWm88Y66qOC",
+        "avatar": "1705219523188_img_.jpg"
     }
 ]

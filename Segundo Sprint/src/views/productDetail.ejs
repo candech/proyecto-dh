@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head', {title: "Detalle de producto"}) %>
+    <%- include('./partials/head', {title: "Detalle de producto" }) %>
 <body>
 	<!-- Header -->
     <%- include('./partials/header') %>
 	<!-- Header -->
 
 	<!-- product detail -->
-    <div class="subtitulo">
-        //<h2>Detalle del producto <%= product.name %></h2>
-    </div>
-    <div >        
-        <h2><%= product.name%></h2>
-    </div>
-    <div class="img-product">
-       <img src="/img/products/<%= product.image %>" alt="img-product-1">
-    </div>
-        <p>
-        <span>$<%= product.price%></span>
-        <b><%= product.discount%>% OFF</b>
-        </p>
-    
-        <a class="product-add-to-cart-button" href="/productCart">Agregar al Carrito <i class="fas fa-shopping-basket"></i></a>        
-        <form action="/products/delete/¿¿" method="POST" style="display: inline-flex">
-            <button type="submit" class="action-button delete">ELIMINAR</button>
-        </form>
-    </div>                              
+    <h2>Detalle del producto <%= product.name %></h2>
+</div>
+<div >        
+    <h2><%= product.name%></h2>
+</div>
+<div class="img-product">
+   <img src="/img/products/<%= product.image %>" alt="img-product-1">
+</div>
+    <p>
+    <span>$<%= product.price%></span>
+    <b><%= product.discount%>% OFF</b>
+    </p>
+            <a class="product-add-to-cart-button" href="/products/productCart">Agregar al Carrito <i class="fas fa-shopping-basket"></i></a>
+            <a href="/products/productEdit/<%= product.id%>" >EDITAR PRODUCTO</a>
+                            <form action="/products/<%= product.id %>?_method=DELETE" method="POST" >
+                                <button type="submit" class="action-button delete">ELIMINAR</button>        
+            </form>
+    </div>                   
 </body>
 </html>

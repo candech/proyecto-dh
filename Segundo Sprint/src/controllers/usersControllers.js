@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const {validationResult} = require('express-validator');
+const { error } = require('console');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
@@ -20,10 +21,8 @@ const usersController = {
            })
           } else {
            const newUser = {id: users.length + 1, ...req.body, password: bcryptjs.hashSync(req.body.password, 10), avatar: req.file.filename};
-           
            users.push(newUser);
            fs.writeFileSync(usersFilePath, JSON.stringify(users));
-          
            res.send('completaste las verificaciones' )
        }
        
@@ -32,10 +31,8 @@ const usersController = {
         res.render('login');
     },
     procesarLogin: (req, res) => {
+    }
         
-    },
-
-
 };
 
 module.exports = usersController

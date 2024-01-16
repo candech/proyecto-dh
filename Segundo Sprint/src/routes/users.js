@@ -5,12 +5,12 @@ const router = express.Router();
 /********** Controller Require  **********/
 const usersController = require('../controllers/usersControllers');
 const multer = require('multer');
-const { body } = require('express-validator');
+const { body, check } = require('express-validator');
 
 const storage = multer.diskStorage({
     destination:(req, file, cb) => {
        
-        cb(null, path.join(__dirname, '../public/img/avatar'))
+        cb(null, path.join(__dirname, '../public/img/users'))
     }, filename: (req, file, cb) => {
         
         cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
@@ -37,6 +37,11 @@ const validateRegisterForm = [
         
         return true;
       })
+];
+
+const validateLoginForm = [
+    body('email').isEmail().withMessage('El email es inválido'),
+    check('password').isLength(8).withMessage('La contraseña debe tener al menos 8 caracteres')
 ]
 
 /********** registro  **********/
@@ -45,7 +50,7 @@ router.post('/register', uploadFile.single('avatar'), validateRegisterForm, user
 
 /********** login **********/
 router.get('/login', usersController.login);
-router.post('/', usersController.procesarLogin);
+router.post('/login', validateLoginForm, usersController.procesarLogin);
 
 
 
