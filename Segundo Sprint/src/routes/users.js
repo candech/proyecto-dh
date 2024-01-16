@@ -7,6 +7,7 @@ const usersController = require('../controllers/usersControllers');
 const multer = require('multer');
 const { body, check } = require('express-validator');
 
+
 const storage = multer.diskStorage({
     destination:(req, file, cb) => {
        
@@ -37,12 +38,13 @@ const validateRegisterForm = [
         
         return true;
       })
-];
+]
 
 const validateLoginForm = [
-    body('email').isEmail().withMessage('El email es inválido'),
-    check('password').isLength(8).withMessage('La contraseña debe tener al menos 8 caracteres')
+  body('email').notEmpty().withMessage('Este campo es obligatorio').bail().isEmail().withMessage('Debes ingresar un email válido'),
+  body('password').notEmpty().withMessage('Este campo es obligatorio').isLength(8).withMessage('La contraseña debe contener al menos 8 caracteres')
 ]
+
 
 /********** registro  **********/
 router.get('/register', usersController.register);
@@ -50,7 +52,7 @@ router.post('/register', uploadFile.single('avatar'), validateRegisterForm, user
 
 /********** login **********/
 router.get('/login', usersController.login);
-router.post('/login', validateLoginForm, usersController.procesarLogin);
+router.post('/login' ,usersController.procesarLogin);
 
 
 
