@@ -24,7 +24,7 @@ const usersController = {
            const newUser = {id: users.length + 1, ...req.body, password: bcryptjs.hashSync(req.body.password, 10), avatar: req.file.filename};
            users.push(newUser);
            fs.writeFileSync(usersFilePath, JSON.stringify(users));
-           res.send('completaste las verificaciones' )
+           res.send('login' )
        }
        
     },
@@ -40,7 +40,7 @@ const usersController = {
         if(isOkThePassword){
             delete userToLogin.password
             req.session.userLogged = userToLogin
-            return res.redirect('/views/profileUser')
+            return res.redirect('profileUser')
         }
         return res.render('login',{
             errors: {
@@ -59,7 +59,7 @@ const usersController = {
        })
     },
     profile:(req,res)=>{
-        return res.render('/views/profileUser',{
+        return res.render('profileUser',{
             user:req.session.userLogged
         })
     }

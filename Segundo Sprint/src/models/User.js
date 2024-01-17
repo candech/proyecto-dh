@@ -20,6 +20,5 @@ findByField: function (field, text) {
     let userFound = allUsers.find(oneUser => oneUser[field] === text);
     return userFound;
   },
-
 };
 module.exports = userModel;
