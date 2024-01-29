@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--vistas parciales-->
-    <%- include('./partials/head', {title: "Login"}) %>
+<!--vistas parciales-->
+<%- include('./partials/head', {title: "Login" }) %> <%- include('./partials/header') %>
+        <!--vistas parciales-->
 
-    <%- include('./partials/header') %>
-    <!--vistas parciales-->
-    <body>
-        <div class="form-container">
-            <div class="login-container">
-                <main class="login">
-                    <form action="/users/login" method="GET">
-                        <label for="email"> Email</label>
-                        
-                      
-                        <input type="text" name="email" placeholder="Coloque su email">
+        <body>
+            <div class="form-container">
+                <div class="login-container">
+                    <main class="login">
+                        <form action="/users/login" method="post">
+                            <label for="email"> Email</label>
 
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="error-message"> 
-                                <%= errors.email.msg %>
-                            </div>
+                            <input type="text" name="email" placeholder="Coloque su email" />
 
-                         <% } %>   
-                         
-                            
+                            <% if (locals.errors && errors.email) { %>
+                                <div class="error-message">
+                                    <%= errors.email.msg %>
+                                </div>
 
-                        <label for="password">Contraseña</label>
-                        <input type="password" name="password" placeholder="Ingresar tu contraseña">
-                        <a href="/olvido-contrasena">¿Olvidaste tu contraseña?</a> <!-- Enlace para restablecer la contraseña -->
-                        <input type="submit" value="Ingresar">
-                    </form>
-                </main>
+                                <% } %>
+                                    <label for="password">Contraseña</label>
+                                    <input type="password" name="password" placeholder="Ingresar tu contraseña" />
+                                    <label for=""><input type="checkbox" name="recordarUsuario" />Recordar mi
+                                        usuario
+                                    </label>
+                                    <br />
+                                    <!-- <a href="/olvido-contrasena">¿Olvidaste tu contraseña?</a> -->
+                                    <!-- Enlace para restablecer la contraseña -->
+                                    <input type="submit" value="INICIAR SESIÓN" />
+                        </form>
+                    </main>
+                </div>
             </div>
-        </div>    
-    </body>
+        </body>
+
 </html>

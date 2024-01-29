@@ -17,24 +17,24 @@ h2{
 header {
     background-color: rgb(247, 247, 247);
     color: #000000;
-    padding: 0 0 20px;
+    /* padding: 0 0 20px; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
 .header-content {
     display: flex;
-    align-items: center;
-    flex-grow: 1; /* Hace que el contenido del centro ocupe todo el espacio disponible */
-    justify-content: center; /* Centra las secciones de Menú, Acerca de nosotros y Contacto */
+   align-items: center;
+    flex-grow: 1;/* Hace que el contenido del centro ocupe todo el espacio disponible */
+     justify-content: center; /* Centra las secciones de Menú, Acerca de nosotros y Contacto */
 }
 
 .header-buttons {
     display: flex;
-    gap: 10px;
-    margin-left: auto; /* Mueve los botones de Carrito y Login hacia la derecha */
+  gap: 10px;
+    margin-left: auto;  /* Mueve los botones de Carrito y Login hacia la derecha */
 }
 
 header h1 {
@@ -43,37 +43,41 @@ header h1 {
 }
 
 .logo img {
-    width: 80px; /* Tamaño reducido del logo */
+    width: 10vw; /* Tamaño reducido del logo */
 }
-
-.register-button,
-.cart-button,
-.login-button {
+.product-nav,
+.user-nav{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.user-nav .menu{
+    background-color: #555;
+}
+.nav-button {
     background-color: #333; /* Fondo del botón */
     color: #fff;
     border: none;
     border-radius: 4px; /* Esquinas redondeadas */
-    padding: 8px 15px;
+    padding: 8px 8x;
     cursor: pointer;
     font-size: 14px;
+    margin:2px;
     transition: background-color 0.3s ease; /* Efecto de transición */
 }
 
-.register-button:hover,
-.cart-button:hover,
-.login-button:hover {
+.nav-button:hover {
     background-color: #555; /* Cambia de color al pasar el mouse */
 }
 
-.banner {
+/* .banner {
     padding: 5px;
     width: 100%;
-    height: 300px; /* Ajusta la altura del banner según tus necesidades */
-    overflow: hidden;
+    height: 300px; */ /* Ajusta la altura del banner según tus necesidades */
+    /* overflow: hidden;
     position: relative;
-}
+} */
 
-.banner-slide {
+/* .banner-slide {
     width: 100%;
     height: 100%;
     display: flex;
@@ -85,14 +89,14 @@ header h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: opacity 0.5s ease-in-out; /* Agrega una transición suave */
-}
-
+    transition: opacity 0.5s ease-in-out; */ /* Agrega una transición suave */
+/* }
+ */
 /* Estilo para ocultar imágenes por defecto */
-.banner-slide img:not(:first-child) {
+/* .banner-slide img:not(:first-child) {
     opacity: 0;
 }
-
+ */
 #menu {
     display: flex;
     justify-content: space-between;
@@ -273,7 +277,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .logo img {
-    width: 220px; /* Tamaño del logo, ajusta según sea necesario */
+    width: 10vw; /* Tamaño del logo, ajusta según sea necesario */
     height: auto;
 }
 
@@ -321,7 +325,7 @@ input[type="text"], input[type="password"] {
 }
 
 a {
-    color: #FDD835; /* Cambia el color del enlace para que coincida con el botón */
+    color: #000000; /* Cambia el color del enlace para que coincida con el botón */
     text-decoration: none; /* Quita la subrayado del enlace */
     margin-bottom: 15px; /* Agrega espacio entre el enlace y los campos de entrada */
     display: block; /* Hace que el enlace sea un bloque para ocupar todo el ancho */

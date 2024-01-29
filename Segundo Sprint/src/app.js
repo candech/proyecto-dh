@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3002;
 const methodOverride =  require('method-override');//permite usar los metodos path y delete
 const createError = require('http-errors');
 const bodyparser = require('body-parser');
-//const cookieParser = require('cookie-parser');//para las cookies
+const cookies = require('cookie-parser');//para las cookies
 const session = require('express-session');//para las sessiones
 const bcrypt = require('bcryptjs');//encriptaciíon de contraseñas
 
@@ -18,9 +18,12 @@ app.use(express.static(path.join(__dirname, 'public')));// Necesario para los ar
 app.use(express.urlencoded({ extended: false })); //capturar la info que se envia por post
 app.use(express.json());
 app.use(methodOverride('_method')); // Para poder pisar el method="POST" en el formulario por PUT y DELETE
-//app.use(cookieParser());
 //app.use(logger('dev'));
-app.use(session({secret: 'secret',resave:false,saveUninitialized:false}))
+app.use(session({secret: 'secret', resave:false, saveUninitialized:false}))
+const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
+app.use(userLoggedMiddleware);
+app.use(cookies());
+
 
 // ************ Template Engin ************
 app.set('view engine', 'ejs');
