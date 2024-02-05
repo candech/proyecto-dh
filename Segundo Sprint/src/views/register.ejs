@@ -42,7 +42,7 @@
             <div>
                 <select name="type" id="type">
                     <option value="">Seleccione una opción</option>
-                    <option value="admin" <%=locals.old && old.type === 'admin' ? 'selected' : ''; %>  >Vendedor</option>
+                    <option value="admin" <%=locals.old && old.type === 'admin' ? 'selected' : ''; %>  >Admin</option>
                     <option value="customer" <%=locals.old && old.type === 'customer' ? 'selected' : ''; %> >Consumidor</option>
                 </select>
                 <% if (locals.errors && errors.type) { %>
