@@ -16,14 +16,14 @@ module.exports = {
       type: DataTypes.VARCHAR(50),
     },
     price: {
-      type: DataTypes.DECIMAL(),
+      type: DataTypes.DECIMAL,
     },
     idCategory: {
-      type: DataTypes.VARCHAR(),
+      type: DataTypes.VARCHAR(20),
       foreingKey: true,
     },
     description: {
-      type: DataTypes.VARCHAR(),
+      type: DataTypes.VARCHAR(1000),
     },
     image: {
       type: DataTypes.IMAGE('.jpg','.png','jpeg'),

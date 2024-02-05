@@ -11,10 +11,10 @@ module.exports = {
         primaryKey: true,
     },
     customer:{
-      type: DataTypes.VARCHAR(),
+      type: DataTypes.VARCHAR(20),
     },
     admin:{
-      type: DataTypes.VARCHAR(),
+      type: DataTypes.VARCHAR(20),
     },
      });
      
