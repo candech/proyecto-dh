@@ -7,32 +7,40 @@ module.exports = {
 
     await queryInterface.createTable('users', {
       idUsers: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER, 
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
+        unique: true,
       },
       firstName: {
         type: DataTypes.STRING,
+        allowNull: false,
 
       },
       lastName: {
-        type: DataTypes.STRING,
-
+        type: DataTypes.STRING, 
+        allowNull: false,
 
       },
       email: {
-        type: DataTypes.VARCHAR(),
+        type: DataTypes.STRING, 
+        allowNull: false,
+        unique: true,
 
       },
       password: {
-        type: DataTypes.VARCHAR(),
+        type: DataTypes.STRING, 
+        allowNull: false,
       },
       idType: {
-        type: DataTypes.STRING,
-        foreingKey: true,
+        type: DataTypes.INTEGER, 
+        foreignKey: true,
+        allowNull: false,
       },
       avatar: {
-        type: DataTypes.IMAGE('.jpg','.png','jpeg','.gif'),
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     });
 

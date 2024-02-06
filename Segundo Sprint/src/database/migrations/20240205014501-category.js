@@ -7,17 +7,23 @@ module.exports = {
     
      await queryInterface.createTable('category', { 
       idCategory:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER, 
         primaryKey: true,
+        allowNull: false,
+        unique: true,
       },
       inSale:{
-      type: DataTypes.VARCHAR(10),
+      type: DataTypes.STRING,
+      allowNull: false,
+      
       },
       visited:{
-        type: DataTypes.VARCHAR(10),
+        type: DataTypes.STRING,
+        allowNull: false,
       },
       vegan:{
-        type: DataTypes.VARCHAR(10),
+        type: DataTypes.STRING,
+        allowNull: false,
       }
       });
      

@@ -8,14 +8,17 @@ module.exports = {
       idUsersProducts: {
         type: DataTypes.INTEGER,
         primaryKey: true,
+        allowNull: false,
+        unique: true,
       },
       idUsers: {
         type: DataTypes.INTEGER,
-        foreingKey: true,
+        foreignKey: true,
+        
       },
       IdProducts: {
         type: DataTypes.INTEGER,
-        foreingKey: true,
+        foreignKey: true,
       },
     });
     

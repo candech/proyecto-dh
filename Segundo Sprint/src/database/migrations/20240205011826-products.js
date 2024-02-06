@@ -8,26 +8,37 @@ module.exports = {
     
    await queryInterface.createTable('products', { 
     idProducts: {
-      type: DataTypes.INTEGER(),
+      type: DataTypes.INTEGER(), 
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
+      unique: true,
     },
     name: {
-      type: DataTypes.VARCHAR(50),
+      type: DataTypes.STRING,
+      allowNull: false,
+      
     },
     price: {
       type: DataTypes.DECIMAL,
+      allowNull: false,
+      
     },
     idCategory: {
-      type: DataTypes.VARCHAR(20),
-      foreingKey: true,
+      type: DataTypes.STRING,
+      foreignKey: true,
+      allowNull: false,
+      
     },
     description: {
-      type: DataTypes.VARCHAR(1000),
+      type: DataTypes.TEXT,
+      allowNull: false,
+      
     },
     image: {
-      type: DataTypes.IMAGE('.jpg','.png','jpeg'),
-    },
+      type: DataTypes.STRING,
+      allowNull: false,
+    }
    });
      
   },
