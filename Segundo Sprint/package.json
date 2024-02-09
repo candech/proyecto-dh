@@ -23,5 +23,8 @@
     "sequelize": "^6.36.0",
     "urlencode": "^2.0.0"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
 }

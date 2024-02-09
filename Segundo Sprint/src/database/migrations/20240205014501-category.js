@@ -5,13 +5,14 @@ const { DataTypes } = require("sequelize");
 module.exports = {
   async up (queryInterface, Sequelize) {
     
-     await queryInterface.createTable('category', { 
-      idCategory:{
+     await queryInterface.createTable('Categorys', { 
+      categoryId:{
         type: DataTypes.INTEGER, 
         primaryKey: true,
         allowNull: false,
         unique: true,
       },
+      
       inSale:{
       type: DataTypes.STRING,
       allowNull: false,
@@ -31,7 +32,7 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     
-    await queryInterface.dropTable('category');
+    await queryInterface.dropTable('Categorys');
     
   }
 };

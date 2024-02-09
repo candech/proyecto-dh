@@ -2,17 +2,26 @@
 
 const { DataTypes } = require("sequelize");
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
     
    await queryInterface.createTable('products', { 
-    idProducts: {
+    productsId: {
       type: DataTypes.INTEGER(), 
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
       unique: true,
+    },
+    categoryId: {
+      type: DataTypes.INTEGER, 
+      references: {
+        model: {
+          tableName: 'Categorys',
+        },
+        key: 'id'
+      },
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -21,12 +30,6 @@ module.exports = {
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-      
-    },
-    idCategory: {
-      type: DataTypes.STRING,
-      foreignKey: true,
       allowNull: false,
       
     },
