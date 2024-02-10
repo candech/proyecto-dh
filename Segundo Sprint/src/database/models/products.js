@@ -1,4 +1,4 @@
-module.exports = ( sequelize, dataTypes ) => {
+module.exports = ( sequelize, DataTypes ) => {
     let alias = "Productos";
     let cols = {
         productsId: {
@@ -8,16 +8,13 @@ module.exports = ( sequelize, dataTypes ) => {
             allowNull: false,
             unique: true,
           },
-
           name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            
+            allowNull: false,  
           },
           price: {
             type: DataTypes.DECIMAL,
-            allowNull: false,
-            
+            allowNull: false,  
           },
           description: {
             type: DataTypes.TEXT,
@@ -35,8 +32,8 @@ module.exports = ( sequelize, dataTypes ) => {
     };
     const Productos = sequelize.define(alias,cols,config)
     Productos.associate = (models) => {
-        Productos.hasMany(models.Categorias, {
-            as: "Productos",
+        Productos.belongsTo(models.Categorias, {
+            as: "categorys",
             foreignKey:"categoryId"
         });
     }

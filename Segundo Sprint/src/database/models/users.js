@@ -1,4 +1,4 @@
-/*module.exports = ( sequelize, dataTypes ) => {
+module.exports = ( sequelize, DataTypes ) => {
     let alias = "Usuarios";
     let cols = {
         userId: {
@@ -46,4 +46,4 @@
       });
   }
     return Usuarios
-}*/
+}

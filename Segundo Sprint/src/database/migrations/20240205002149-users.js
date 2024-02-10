@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 const { DataTypes } = require("sequelize");
 
 module.exports = {
@@ -17,8 +17,9 @@ module.exports = {
         references: {
           model: {
             tableName: 'types',
+             key: 'id'
+         
           },
-          key: 'id'
         },
         allowNull: false,
       },
@@ -57,4 +58,3 @@ module.exports = {
     
   }
 };
-*/

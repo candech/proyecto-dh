@@ -1,4 +1,4 @@
-module.exports = ( sequelize, dataTypes ) => {
+module.exports = ( sequelize, DataTypes ) => {
     let alias = "Categorias";
     let cols = {
         categoryId:{
@@ -6,16 +6,6 @@ module.exports = ( sequelize, dataTypes ) => {
             primaryKey: true,
             allowNull: false,
             unique: true,
-          },
-          productsId: {
-            type: DataTypes.INTEGER, 
-            references: {
-              model: {
-                tableName: 'products',
-              },
-              key: 'id'
-            },
-            allowNull: false,
           },
           inSale:{
           type: DataTypes.STRING,
@@ -30,8 +20,6 @@ module.exports = ( sequelize, dataTypes ) => {
             type: DataTypes.STRING,
             allowNull: false,
           }
-          
-         
     };
     let config = {
       tableName: "categorys",
@@ -40,11 +28,9 @@ module.exports = ( sequelize, dataTypes ) => {
   const Categorias = sequelize.define(alias,cols,config)
  Categorias.associate = (models) => {
       Categorias.hasMany(models.Productos, {
-          as: "Categorias",
-          foreignKey:"productsId"
+          as: "products",
+          foreignKey:"categoryId"
       });
   }
   return Categorias
-   
-  
 }
