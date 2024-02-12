@@ -5,6 +5,7 @@ const { validationResult } = require('express-validator');
 const { error } = require('console');
 //const usersFilePath = path.join(__dirname, '../data/users.json');
 //let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const db = require('../database/models');
 const userModel = require('../models/User');
 const { ResultWithContextImpl } = require('express-validator/src/chain');
 
