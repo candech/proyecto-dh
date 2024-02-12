@@ -1,12 +1,10 @@
 module.exports = ( sequelize, DataTypes ) => {
-    let alias = "Usuarios";
+    let alias = "users";
     let cols = {
         userId: {
             type: DataTypes.INTEGER, 
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
-            unique: true,
           },
           firstName: {
             type: DataTypes.STRING,
@@ -28,6 +26,10 @@ module.exports = ( sequelize, DataTypes ) => {
             type: DataTypes.STRING, 
             allowNull: false,
           },
+          type: {
+            type: DataTypes.STRING, 
+            allowNull: false,
+          },
           avatar: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,12 +40,12 @@ module.exports = ( sequelize, DataTypes ) => {
       tableName: "users",
       timestamps: false
   };
-    const Usuarios = sequelize.define(alias,cols,config)
+    const users = sequelize.define(alias,cols,config)
       Usuarios.associate = (models) => {
        Usuarios.hasMany(models.Types, {
           as: "users",
           foreignKey:"typeId"
       });
   }
-    return Usuarios
+    return users
 }

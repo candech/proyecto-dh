@@ -10,16 +10,14 @@ module.exports = {
       type: DataTypes.INTEGER(), 
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
-      unique: true,
     },
     categoryId: {
       type: DataTypes.INTEGER, 
       references: {
         model: {
-          tableName: 'categorys',
-          key: 'id'
+          tableName: 'category',
         },
+        key: 'id'
       },
       allowNull: false,
     },
@@ -29,12 +27,12 @@ module.exports = {
       
     },
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.INTEGER,
       allowNull: false,
       
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
       
     },

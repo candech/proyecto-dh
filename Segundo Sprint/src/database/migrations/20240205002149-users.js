@@ -10,18 +10,6 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-        unique: true,
-      },
-      typeId: {
-        type: DataTypes.INTEGER, 
-        references: {
-          model: {
-            tableName: 'types',
-             key: 'id'
-         
-          },
-        },
-        allowNull: false,
       },
       firstName: {
         type: DataTypes.STRING,
@@ -43,7 +31,16 @@ module.exports = {
         type: DataTypes.STRING, 
         allowNull: false,
       },
-     
+      typeId: {
+        type: DataTypes.INTEGER, 
+        references: {
+          model: {
+            tableName: 'type',
+          },
+           key: 'id'
+        },
+        allowNull: false,
+      },
       avatar: {
         type: DataTypes.STRING,
         allowNull: false,

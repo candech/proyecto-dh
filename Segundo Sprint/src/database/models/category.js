@@ -5,7 +5,6 @@ module.exports = ( sequelize, DataTypes ) => {
             type: DataTypes.INTEGER, 
             primaryKey: true,
             allowNull: false,
-            unique: true,
           },
           inSale:{
           type: DataTypes.STRING,
@@ -22,7 +21,7 @@ module.exports = ( sequelize, DataTypes ) => {
           }
     };
     let config = {
-      tableName: "categorys",
+      tableName: "category",
       timestamps: false
   };
   const Categorias = sequelize.define(alias,cols,config)

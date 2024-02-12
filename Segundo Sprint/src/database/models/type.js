@@ -6,7 +6,6 @@ module.exports = ( sequelize, DataTypes ) => {
         type: DataTypes.INTEGER, 
         primaryKey: true,
         allowNull: false,
-        unique: true,
       },
       customer: {
         type: DataTypes.STRING, 

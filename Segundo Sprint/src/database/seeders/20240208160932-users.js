@@ -1,32 +1,25 @@
 'use strict';
+const { faker } = require("@faker-js/faker");
 
-/** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
   async up(queryInterface, Sequelize) {
 
-    await queryInterface.bulkInsert('users', [{
-      idUsers: 1,
-      firstName: 'John ',
-      lastName: 'Doe',
-      email: 'juand@gmail.com',
-      
-    },{
-      idUsers: 2,
-      firstName: 'Juana ',
-      lastName: 'arco',
-      email: 'juanita@gmail.com',
-      
-
-    },{
-      idUsers: 3,
-      firstName: 'maria ',
-      lastName: 'perez',
-      email: 'maria@gmail.com',
-      
-
-    }
-  ], {});
-
+    const users = [];
+    Array(250)
+      .fill(0)
+      .forEach((_, i) => {
+        const randomUser = {
+          userId: i + 1,
+          firstName: faker.person.firstName(),
+          lastName: faker.person.lastName(),
+          email: faker.internet.email(),
+          password: faker.internet.password({ length: 20 }),
+          avatar: faker.image.avatar(),
+        };
+        users.push(randomUser);
+      })
+    await queryInterface.bulkInsert('users', users);
   },
 
   async down(queryInterface, Sequelize) {
