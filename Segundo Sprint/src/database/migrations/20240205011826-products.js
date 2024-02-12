@@ -13,16 +13,7 @@ module.exports = {
       allowNull: false,
       unique: true,
     },
-    categoryId: {
-      type: DataTypes.INTEGER, 
-      references: {
-        model: {
-          tableName: 'categorys',
-          key: 'id'
-        },
-      },
-      allowNull: false,
-    },
+   
     name: {
       type: DataTypes.STRING,
       allowNull: false,

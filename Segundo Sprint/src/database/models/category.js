@@ -7,6 +7,15 @@ module.exports = ( sequelize, DataTypes ) => {
             allowNull: false,
             unique: true,
           },
+          productsId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'products',
+              key: 'id', 
+            },
+           
+          },
           inSale:{
           type: DataTypes.STRING,
           allowNull: false,
