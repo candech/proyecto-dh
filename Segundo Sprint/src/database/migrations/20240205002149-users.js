@@ -1,4 +1,5 @@
 'use strict';
+
 const { DataTypes } = require("sequelize");
 
 module.exports = {
@@ -10,7 +11,9 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
+        unique: true,
       },
+     
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,

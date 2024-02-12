@@ -10,16 +10,7 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      productsId: {
-        type: DataTypes.INTEGER, 
-        references: {
-          model: {
-            tableName: 'products',
-          },
-          key: 'id'
-        },
-        allowNull: false,
-      },
+      
       inSale:{
       type: DataTypes.STRING,
       allowNull: false,

@@ -6,6 +6,15 @@ module.exports = ( sequelize, DataTypes ) => {
             primaryKey: true,
             allowNull: false,
           },
+          productsId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: 'products',
+              key: 'id', 
+            },
+           
+          },
           inSale:{
           type: DataTypes.STRING,
           allowNull: false,

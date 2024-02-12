@@ -6,6 +6,15 @@ module.exports = ( sequelize, DataTypes ) => {
             primaryKey: true,
             autoIncrement: true,
           },
+          typeId: {
+            type: DataTypes.INTEGER, 
+            allowNull: false,
+            references: {
+              model: 'types',
+              key: 'id', 
+            },
+            
+          },
           firstName: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -36,6 +45,7 @@ module.exports = ( sequelize, DataTypes ) => {
           },
              
     };
+    
     let config = {
       tableName: "users",
       timestamps: false
@@ -43,7 +53,7 @@ module.exports = ( sequelize, DataTypes ) => {
     const users = sequelize.define(alias,cols,config)
       Usuarios.associate = (models) => {
        Usuarios.hasMany(models.Types, {
-          as: "users",
+          as: "types",
           foreignKey:"typeId"
       });
   }
