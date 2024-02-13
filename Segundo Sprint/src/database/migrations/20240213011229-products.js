@@ -6,12 +6,21 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     
    await queryInterface.createTable('products', { 
-    productsId: {
-      type: DataTypes.INTEGER(), 
+    id: {
+      type: DataTypes.INTEGER, 
       primaryKey: true,
       autoIncrement: true,
     },
-   
+    categoryId: {
+      type: DataTypes.INTEGER, 
+      references: {
+        model: {
+          tableName: "category",
+        },
+        key: "id",
+      }, 
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,8 +34,8 @@ module.exports = {
     description: {
       type: DataTypes.STRING,
       allowNull: false,
-      
     },
+    
     image: {
       type: DataTypes.STRING,
       allowNull: false,

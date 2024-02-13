@@ -6,7 +6,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     await queryInterface.createTable('users', {
-      userId: {
+      id: {
         type: DataTypes.INTEGER, 
         primaryKey: true,
         autoIncrement: true,
@@ -36,13 +36,13 @@ module.exports = {
       },
       typeId: {
         type: DataTypes.INTEGER, 
-        references: {
-          model: {
-            tableName: 'type',
-          },
-           key: 'id'
-        },
         allowNull: false,
+        references: {
+        model: {
+          tableName: "type",
+        },
+        key: "id",
+      }, 
       },
       avatar: {
         type: DataTypes.STRING,

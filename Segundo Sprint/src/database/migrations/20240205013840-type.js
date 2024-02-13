@@ -3,8 +3,8 @@ const { DataTypes } = require("sequelize");
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('types', {
-      typeId: {
+    await queryInterface.createTable('type', {
+      id: {
         type: DataTypes.INTEGER, 
         primaryKey: true,
         allowNull: false,

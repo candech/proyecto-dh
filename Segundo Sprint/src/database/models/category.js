@@ -1,44 +1,35 @@
 module.exports = ( sequelize, DataTypes ) => {
-    let alias = "Categorias";
-    let cols = {
-        categoryId:{
-            type: DataTypes.INTEGER, 
-            primaryKey: true,
-            allowNull: false,
-          },
-          productsId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-              model: 'products',
-              key: 'id', 
-            },
-           
-          },
-          inSale:{
+  let alias = "Categoria";
+  let cols = {
+      id:{
+          type: DataTypes.INTEGER, 
+          primaryKey: true,
+          allowNull: false,
+        },
+        inSale:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        
+        },
+        visited:{
           type: DataTypes.STRING,
           allowNull: false,
-          
-          },
-          visited:{
-            type: DataTypes.STRING,
-            allowNull: false,
-          },
-          vegan:{
-            type: DataTypes.STRING,
-            allowNull: false,
-          }
-    };
-    let config = {
-      tableName: "category",
-      timestamps: false
+        },
+        vegan:{
+          type: DataTypes.STRING,
+          allowNull: false,
+        }
   };
-  const Categorias = sequelize.define(alias,cols,config)
- Categorias.associate = (models) => {
-      Categorias.hasMany(models.Productos, {
-          as: "products",
-          foreignKey:"categoryId"
-      });
-  }
-  return Categorias
+  let config = {
+    tableName: "category",
+    timestamps: false
+};
+const Categoria = sequelize.define(alias,cols,config)
+Categoria.associate = (models) => {
+    Categoria.hasMany(models.Productos, {
+        as: "products",
+        foreignKey:"categoryId"
+    });
+}
+return Categoria
 }
