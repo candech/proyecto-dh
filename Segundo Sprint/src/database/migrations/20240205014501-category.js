@@ -21,7 +21,15 @@ module.exports = {
       vegan:{
         type: DataTypes.STRING,
         allowNull: false,
-      }
+      },
+    code: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+    },
+    label: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+    }
       });
      
   },

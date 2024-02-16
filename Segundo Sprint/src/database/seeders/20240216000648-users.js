@@ -6,15 +6,17 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     const users = [];
-    Array(250)
+    Array(50)
       .fill(0)
       .forEach((_, i) => {
+        const idRandom = Math.round(Math.random()) + 1
         const randomUser = {
-          userId: i + 1,
+          id: i + 1,
           firstName: faker.person.firstName(),
           lastName: faker.person.lastName(),
           email: faker.internet.email(),
           password: faker.internet.password({ length: 20 }),
+          typeId: idRandom,
           avatar: faker.image.avatar(),
         };
         users.push(randomUser);

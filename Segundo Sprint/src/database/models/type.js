@@ -10,13 +10,21 @@ module.exports = ( sequelize, DataTypes ) => {
     },
     customer: {
       type: DataTypes.STRING, 
-      allowNull: false,
+      allowNull: true,
     },
     admin: {
       type: DataTypes.STRING, 
-      allowNull: false,
+      allowNull: true,
      
     },
+    code: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+    },
+    label: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+    }
           
   };
   let config = {

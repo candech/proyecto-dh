@@ -30,7 +30,7 @@ module.exports = ( sequelize, DataTypes ) => {
   };
   const Productos = sequelize.define(alias,cols,config)
   Productos.associate = (models) => {
-    Productos.belongsTo(models.Categorias, {
+    Productos.belongsTo(models.Categoria, {
           foreignKey:"categoryId",
           as: "products",
       });
