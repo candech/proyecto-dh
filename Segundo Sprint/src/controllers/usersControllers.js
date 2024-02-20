@@ -6,12 +6,16 @@ const { error } = require('console');
 //const usersFilePath = path.join(__dirname, '../data/users.json');
 //let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const db = require('../database/models');
-const userModel = require('../models/User');
+
 const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
     register: (req, res) => {
-        res.render('register')
+        /* res.render('register') */
+        db.Usuarios.findAll()
+		.then((usuarios)=>{
+			return res.render('register',{usuarios: usuarios})
+		})
 
     },
     procesarRegister: (req, res) => {
@@ -23,7 +27,7 @@ const usersController = {
                 old: req.body,
             })
         }
-        let userInDB = userModel.findByField('email', req.body.email);
+        let userInDB = Usuarios.findByField('email', req.body.email);
 
         if (userInDB) {
             res.render('register', {
@@ -40,7 +44,7 @@ const usersController = {
             avatar: req.file.filename,
 
         }
-        userModel.create(userToCreate);
+        Usuarios.create(userToCreate);
         return res.redirect('login');
 
     },

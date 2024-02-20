@@ -1,15 +1,15 @@
-const userModel = require('../models/User');
+/* const userModel = require('../models/User');
 
 function userLoggedMiddleware(req, res, next) {
 
     res.locals.isLogged = false;
 
-    /* let emailInCookie = req.cookies.userEmail;
+    let emailInCookie = req.cookies.userEmail;
     let userFromCookie = userModel.findByField('email', emailInCookie); 
 
     if(userFromCookie) {
         req.session.userLogged = userFromCookie;
-    } */
+    }
 
     if (req.session.userLogged) {
         res.locals.isLogged = true;
@@ -21,4 +21,4 @@ function userLoggedMiddleware(req, res, next) {
     next();
 }
 
-module.exports = userLoggedMiddleware;
+module.exports = userLoggedMiddleware; */

@@ -6,7 +6,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
 
     const users = [];
-    Array(50)
+    Array(20)
       .fill(0)
       .forEach((_, i) => {
         const idRandom = Math.round(Math.random()) + 1
