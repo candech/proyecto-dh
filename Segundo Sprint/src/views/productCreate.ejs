@@ -28,9 +28,9 @@
 					<div class="">
 						<label for="category" class="">Categoría:</label>
 						<select name="category" id="category" class="form-input">
-							<option value="inSale">En oferta</option>
-							<option value="visited">Últimos agregados</option>
-							<option value="vegan">Veganas</option>
+							<% allCategory.forEach(category => { %>
+								<option value="<%= category.id %>"><%= category.label %></option>
+								<% }); %>
 						</select>
 					</div>
 					<div class="">

@@ -11,24 +11,24 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //t
 
 const productsControllers ={
 	products: (req, res) =>{
-	   db.Productos.findAll()
+	 try {
+		db.Productos.findAll()
 		.then((products)=>{
 			return res.render('products',{products: products})
 		})
+	 } catch (error) {
+		res.send(error.message)
+	 }
     },	
 
-    productCreate: (req, res) =>{
-         res.render('productCreate')
+    productCreate: async(req, res) =>{
+		try {
+			const allCategory = await db.Categoria.findAll()
+			return res.render('productCreate',{allCategory})
+		} catch (error) {
+			res.send(error.message)
+		}
     },
-
-	productDetail: async (req, res) =>{
-		
-		db.Productos.findByPk(req.params.id)
-            .then(productDetail => {
-                res.render('productDetail', {productDetail});
-            });
-    },	
-
 	productStore: async (req, res) => {
 		try{
             const productToCreate = {
@@ -41,16 +41,27 @@ const productsControllers ={
             await db.Productos.create(productToCreate)    
 			       res.redirect('products');
            
-        }catch(err){
-            res.send(err)
+        }catch(error){
+            res.send(error.message)
         }
 		
 	},
+	productDetail: async (req, res) =>{
+		try {
+			db.Productos.findByPk(req.params.id)
+            .then(productDetail => {
+                res.render('productDetail', {productDetail});
+            });
+		} catch (error) {
+			res.send(error.message)
+		}
+    },	
 
-	productEdit: (req, res) => {
+	productEdit: async(req, res) => {
 		/* const idProd = req.params.id;
 		const producto = products.find(producto => producto.id == idProd);
 		res.render('productEdit', {producto}); */
+		
 	},
 
 	productUpdate: (req, res) => {
