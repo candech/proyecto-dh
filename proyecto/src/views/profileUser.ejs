@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!--vistas parciales-->
+<%- include('./partials/head', {title: "Perfil de Usuario"}) %>
+
+<%- include('./partials/header') %>
+<!--vistas parciales-->
+<body>
+    
+   <form action="/users/login" method="get">
+   
+     <section>
+         <h2> WELCOME <%=  user.firstName  %></h2>
+        <div>
+            <figure>
+                <img src="/img/users/<%= user.avatar%>" alt="">
+            </figure>
+            <h3>ID: <%= user.id  %></h3>
+        </div>
+        <div >
+            <h3><%=  user.firstName %> <%= user.lastName %></h3>
+            <%  if (user.type) {  %>
+                <p>Categoría: <%=  user.type %></p>
+            <% }  %>
+            <p>Email: <a href="<%= user.email  %>" target="_blank"><%= user.email  %></a></p>
+            <div>
+                <a class="button" href="/users/<%=  user.id  %>">Ver detalle</a>
+            </div>
+        </div>
+     </section>
+   </form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<%- include('./partials/head', {title: "Editando " + product.name}) %>
+
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header') %>
+            <!-- Header -->
+
+
+            <form action="/products/<%= product.id %>/?_method=PUT" method="POST">
+                <section>
+                    <h2>Estás editando: <%= product.name %></h2>
+                    <div class="row product-detail">
+                        <div class="">
+                            <label for="name" class="">Nombre del producto:</label>
+                            <input type="text" id="name" name="name" value="<%= product.name %>" placeholder=""
+                                class="form-input"></input>
+                        </div>
+                        <div class="">
+                            <label for="price" class="">Precio del producto:</label>
+                            <input type="text" id="price" name="price" value="<%= product.price %>"
+                                placeholder="Ej: 5678" class="form-input"></input>
+                        </div>
+                        <div class="">
+                            <label for="category" class="">Categoría:</label>
+                            <select name="category" id="category" class="form-input">
+                                <% allCategory.forEach(category=> { %>
+                                    <option value="<%= category.id %>">
+                                        <%= category.label %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+                        </div>
+                        <div class="">
+                            <label for="description" class="">Descipción:</label>
+                            <textarea name="description" id="description"class="form-input"><%= product.description %> </textarea>
+                        </div>
+                            <div class="">
+                                <label for="image" class="">Imagen del producto:</label>
+                                <input type="file" id="image" name="image">
+                            </div>
+                            <button type="submit" class="buy-now-button">Guardar producto</button>
+                    </div>
+                </section>
+            </form>
+            <button><a href="/products/productDelete/<%= product.id%>">ELIMINAR PRODUCTO</a></button> 
+            <!-- footer -->
+            <%- include('./partials/footer') %>
+                <!-- /footer -->
+    </body>
