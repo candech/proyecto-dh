@@ -1,35 +1,50 @@
-const fs = require('fs');
-const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { error } = require('console');
-//const usersFilePath = path.join(__dirname, '../data/users.json');
-//let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const db = require('../database/models');
 
 const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
-    register: (req, res) => {
-        /* res.render('register') */
-        db.Usuarios.findAll()
-		.then((usuarios)=>{
-			return res.render('register',{usuarios: usuarios})
-		})
-
+    users: async(req, res)=>{
+        try {
+            db.Usuarios.findAll()
+            .then((user)=>{
+                return res.render('users',{users: user})
+            })
+         } catch (error) {
+            res.send(error.message)
+         }
     },
-    procesarRegister: (req, res) => {
+    detail: async(req,res)=>{
+        try {
+			db.Usuarios.findByPk(req.params.id)
+            .then(user => {
+                res.render('userDetail', {user});
+            });
+		} catch (error) {
+			res.send(error.message)
+		}
+    },
+    register: async (req, res) => {
+        try {
+        const allType = await db.Tipos.findAll()
+        return res.render('register', { allType })
+        } catch (error) {
+            res.send(error.message)
+        }
+    },
+    procesarRegister: async (req, res) => {
         const resultValidation = validationResult(req);
-
         if (resultValidation.errors.length > 0) {
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 old: req.body,
             })
         }
-        let userInDB = Usuarios.findByField('email', req.body.email);
-
-        if (userInDB) {
+        //let userInDB = db.Usuarios.findByField('email', req.body.email);
+        let allUsers = await db.Usuarios.findAll()
+        if (allUsers) {
             res.render('register', {
                 errors: {
                     email: { msg: 'Este email ya está registrado' }
@@ -40,11 +55,12 @@ const usersController = {
 
         let userToCreate = {
             ...req.body,
+            typeId: req.body.type,
             password: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file.filename,
 
         }
-        Usuarios.create(userToCreate);
+        db.Usuarios.create(userToCreate);
         return res.redirect('login');
 
     },
@@ -60,9 +76,8 @@ const usersController = {
                 req.session.userLogged = userToLogin;
 
                 if (req.body.recordarUsuario) {
-                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2})
+                    res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                 }
-
                 return res.redirect('profileUser')
 
             }

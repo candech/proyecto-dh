@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', {title: "Todos los usuarios" }) %>
+
+	<body>
+		<!-- Header -->
+		<%- include('./partials/header') %>
+			<!-- Header -->
+			
+			<h2>Todos los usuarios</h2>
+			 <% for (user of users) { %>
+			<div>
+				<section>
+					<a href="/users/userDetail/<%= user.id %>">
+						<h2><%= user.firstName %></h2>
+						<h2><%= user.lastName %></h2>
+						<h2><%= user.email %></h2>
+						<figure class="product-box_image">
+							<img src="/img/users/<%= user.avatar %>" alt="avatar">
+						</figure>
+					</a>
+				</section>
+			</div>
+			<% } %> 
+			
+						</div>
+						</div>
+						<!-- footer -->
+						<%- include('partials/footer') %>
+							<!-- /footer -->
+
+	</body>
+
+</html>

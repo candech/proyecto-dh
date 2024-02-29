@@ -6,13 +6,12 @@
 		<!-- Header -->
 		<%- include('./partials/header') %>
 			<!-- Header -->
-
+			
 			<!-- products -->
 			<h2>Todos los productos</h2>
 			 <% for (product of products) { %>
 			<div>
 				<section>
-					
 					<a href="/products/productDetail/<%= product.id %>">
 						<h2><%= product.name %></h2>
 						<figure class="product-box_image">

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head', {title: "Detalle de producto" }) %>
+
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header') %>
+            <!-- Header -->
+
+            <!-- product detail -->
+            <section>
+            <h2>Detalle del usuario <%= user.firstName %></h2>   
+                <div>
+                    <img src="/img/users/<%= user.avatar %>">
+                    <p><%= user.email%></p>
+                </div>
+            </section>
+            <!-- footer -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
+    </body>
+
+</html>

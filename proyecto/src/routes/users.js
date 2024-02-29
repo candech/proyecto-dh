@@ -43,6 +43,10 @@ const validateRegisterForm = [
       })
 ]
 
+router.get('/', usersController.users)
+router.get('/userDetail/:id', usersController.detail)
+
+
 /********** registro  **********/
 router.get('/register', guestMiddleware, usersController.register);
 router.post('/register', uploadFile.single('avatar'), validateRegisterForm, usersController.procesarRegister);
