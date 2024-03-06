@@ -4,7 +4,7 @@ const path = require('path');
 const validateCreateForm = [
     body('name').notEmpty().isLength({ min: 5 }),
     body('price').notEmpty(),
-    body('category').notEmpty().isIn(['inSale', 'visited', 'vegan']),
+    body('category').notEmpty().withMessage('debes elegir etc'),
     body('description').notEmpty().isLength({ min: 20 }),
     body('image').custom((value, {req}) => {
         let file = req.file;

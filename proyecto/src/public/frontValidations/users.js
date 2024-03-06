@@ -38,6 +38,16 @@ const validations = [
         ]
     },
     {
+        inputName: "type",
+        validations: [
+            {
+                validator: isEmpty,
+                errorMsg: "Este campo es obligatorio"
+            }
+           
+        ]
+    },
+    {
         inputName: "password",
         validations: [
             {
@@ -47,6 +57,16 @@ const validations = [
             {
                 validator: (input) => input.value.length >= 8,
                 errorMsg: "La contraseña debe tener un minimo de 8 caracteres"
+            }
+        ]
+    },
+    ,
+    {
+        inputName: "avatar",
+        validations: [
+            {
+                validator: isEmpty,
+                errorMsg: "Este campo es obligatorio"
             }
         ]
     },
@@ -61,24 +81,38 @@ window.addEventListener("load", function () {
 
         const errores = [];
 
-        validations.forEach((inputToValidate) => {
-            const input = form[inputToValidate.inputName];
+        validations.forEach((elementToValidate) => {
+            const element = form[elementToValidate.inputName];
 
-            for (const validation of inputToValidate.validations) {
-                const isValid = validation.validator(input);
+            for (const validation of elementToValidate.validations) {
+                const isValid = validation.validator(element);
                 if (!isValid) {
                     errores.push(validation.errorMsg);
-                    input.parentElement.classList.add("is-invalid");
-                    input.parentElement.classList.remove("is-valid");
-                    input.parentElement.querySelector(".error").innerHTML =
+                    element.parentElement.classList.add("is-invalid");
+                    element.parentElement.classList.remove("is-valid");
+                    element.parentElement.querySelector(".error").innerHTML =
                         validation.errorMsg;
                     return
                 }
             }
-            input.parentElement.classList.add("is-valid");
-            input.parentElement.classList.remove("is-invalid");
-            input.parentElement.querySelector(".error").innerHTML = "";
+            element.parentElement.classList.add("is-valid");
+            element.parentElement.classList.remove("is-invalid");
+            element.parentElement.querySelector(".error").innerHTML = "";
         });
+        // Validación adicional para el select
+        const selectElement = form["type"];
+        if (selectElement.selectedIndex === 0) {
+            errores.push("Selecciona una rol");
+            selectElement.parentElement.classList.add("is-invalid");
+            selectElement.parentElement.classList.remove("is-valid");
+            selectElement.parentElement.querySelector(".error").innerHTML =
+                "Selecciona un rol";
+        } else {
+            selectElement.parentElement.classList.add("is-valid");
+            selectElement.parentElement.classList.remove("is-invalid");
+            selectElement.parentElement.querySelector(".error").innerHTML = "";
+        }
+
         if (errores.length == 0) {
             form.submit();
         } else {
@@ -86,5 +120,5 @@ window.addEventListener("load", function () {
         }
     })
 
-});
+})
 

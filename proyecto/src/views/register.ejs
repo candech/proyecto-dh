@@ -24,11 +24,11 @@
                             <% } %>
                                 <span class="error"></span>
                     </div>
-                    <br>
+                   
                     <div>
                         <label for="lastName">Apellido</label>
-                        <br>
                         <input type="text" id="lastName" name="lastName"
+                        class="form-control <%= locals.errors && errors.lasttName ? 'is-invalid' : null  %>"
                             value="<%= locals.old && old.lastName ? old.lastName : '' %>">
                         <% if (locals.errors && errors.lastName) { %>
                             <div class="error-message">
@@ -37,11 +37,12 @@
                             <% } %>
                                 <span class="error"></span>
                     </div>
-                    <br>
+                    
                     <div>
                         <label for="email">Correo Electrónico</label>
-                        <br>
+                     
                         <input type="email" id="email" name="email"
+                        class="form-control" <%= locals.errors && errors.email ? 'is-invalid' : null  %>
                             value="<%= locals.old && old.email ? old.email : '' %>">
                         <% if (locals.errors && errors.email) { %>
                             <div class="error-message">
@@ -50,12 +51,15 @@
                             <% } %>
                                 <span class="error"></span>
                     </div>
-                    <br>
+                    
                     <div>
                         <label for="type" class="">Rol:</label>
-                        <select name="type" id="type" class="">
+                        <select name="type" id="type" class=""
+                        <%= locals.errors && errors.type ? 'is-invalid' : null  %>>
+                            <option value="">Elegí un rol</option>
                             <% allType.forEach(type=> { %>
-                                <option value="<%= type.id %>">
+                                <option value="<%= type.id %>"
+                                    <%= locals.old && (type.id === old.type.id) ? 'selected' : null %>>
                                     <%= type.label %>
                                 </option>
                                 <% }); %>
@@ -65,7 +69,7 @@
                                 <%= errors.type.msg %>
                             </div>
                             <% } %>
-                            <br>
+                            <span class="error"></span>
                     </div>
                     <div>
                         <label for="password">Contraseña</label>
@@ -76,21 +80,24 @@
                                 <%= errors.password.msg %>
                             </div>
                             <% } %>
+                            
                     </div>
-                    <br>
                     <div>
                         <label for="avatar">Imagen de perfil</label>
-                        <input type="file" name="avatar" id="avatar">
+                        <input type="file" name="avatar" id="avatar"
+                        class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null  %>">
                         <% if (locals.errors && errors.avatar) { %>
                             <div class="error-message">
                                 <%= errors.avatar.msg %>
                             </div>
                             <% } %>
+                            <span class="error"></span>
                     </div>
 
                     <button type="submit" id="register-button" class="yellow-button">Registrarse</button>
                 </form>
                 <div>
+                    
                     <script src="/frontValidations/users.js"></script>
 
         </body>

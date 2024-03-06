@@ -36,6 +36,7 @@ const usersController = {
     },
     procesarRegister: async (req, res) => {
         const allType = await db.Tipos.findAll()
+        
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register', {
@@ -44,13 +45,12 @@ const usersController = {
                 allType
             })
         }
-
         let userInDB = await db.Usuarios.findOne({
             where: {
                 email: req.body.email
             }
         });
-
+        
         if(userInDB){ 
             res.render('register', {
                 errors: {
@@ -66,11 +66,12 @@ const usersController = {
             typeId: req.body.type,
             password: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file.filename,
-
+            
         }
-    db.Usuarios.create(userToCreate);
+        db.Usuarios.create(userToCreate);
+        
         return res.redirect('login');
-
+        
     },
     login: (req, res) => {
         return res.render('login');

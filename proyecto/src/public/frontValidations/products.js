@@ -1,6 +1,5 @@
 const isEmpty = (input) => input.value && input.value.trim() !== "";
-const notEmpty = (input) => input.value !== "";
-  
+
 const validations = [
     {
         inputName: "name",
@@ -28,7 +27,7 @@ const validations = [
         inputName: "category",
         validations: [
             {
-                validator: notEmpty,
+                validator: isEmpty,
                 errorMsg: "Este campo es obligatorio"
             },
            

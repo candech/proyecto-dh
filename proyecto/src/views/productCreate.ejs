@@ -38,9 +38,12 @@
 				<div class="">
 					<label for="category" class="">Categoría:</label>
 					<select name="category" id="category" class="form-input" 
-					value="<%= locals.old && old.category ? old.category : '' %>">
+					<%= locals.errors && errors.category ? 'is-invalid' : null  %>>
+					<option value="">Elegí una categoría</option>
 						<% allCategory.forEach(category => { %>
-							<option value="<%= category.id %>"><%= category.label %></option>
+							<option value="<%= category.id %>"
+					<%= locals.old && (category.id === old.category.id) ? 'selected' : null %>>
+								<%= category.label %></option>
 							<% }); %>
 					</select>
 					<% if (locals.errors && errors.category) { %>
