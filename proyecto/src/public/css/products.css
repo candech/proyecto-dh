@@ -136,3 +136,6 @@ transition: color 1s;
 }
 
 /*ESTILOS DEL CARRITO*/
+.error {
+    color: red
+};

@@ -1,88 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--vistas parciales-->
-    <%- include('./partials/head', {title: "Registro"}) %>
+<!--vistas parciales-->
+<%- include('./partials/head', {title: "Registro" }) %>
 
     <%- include('./partials/header') %>
-    <!--vistas parciales-->
-<body>
-  
-    <div class="register-container">
-        <form id="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
-        <h2>Registro</h2>
-            <label for="firstName">Nombre</label>
-            <br>
-            <input type="text" id="firstName" name="firstName" class="form-control <%= locals.errors && errors.firstName ? 'is-invalid' : null  %>" 
-            value="<%= locals.old && old.firstName ? old.firstName : '' %>">
-           <% if (locals.errors && errors.firstName) { %>
-            <div class="error-message">
-            <%= errors.firstName.msg %>
-        </div>
-          <% } %>
-            <br>
-            <label for="lastName">Apellido</label>
-            <br>
-            <input type="text" id="lastName" name="lastName" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
-            <% if (locals.errors && errors.lastName) { %>
-                <div class="error-message">
-                <%= errors.lastName.msg %>
-            </div>
-              <% } %>
-            <br>
-            <label for="email">Correo Electrónico</label>
-            <br>
-            <input type="email" id="email" name="email" value="<%= locals.old && old.email ? old.email : '' %>">
-            <% if (locals.errors && errors.email) { %>
-                <div class="error-message">
-                <%= errors.email.msg %>
-            </div>
-              <% } %>
-            <br>
-            <div>
-                    <label for="category" class="">Categoría:</label>
-                    <select name="type" id="type" class="">
-                        <% allType.forEach(type => { %>
-                            <option value="<%= type.id %>"><%= type.label %></option>
-                            <% }); %>
-                    </select>
-                <% if (locals.errors && errors.type) { %>
-                    <div class="error-message">
-                    <%= errors.type.msg %>
-                </div>
-                  <% } %>
-            </div>
-            <br>
-            <label for="password">Contraseña</label>
-            <br>
-            <input type="password" id="password" name="password">
-            <% if (locals.errors && errors.password) { %>
-                <div class="error-message">
-                <%= errors.password.msg %>
-            </div>
-              <% } %>
-            <br>
-            <!-- <label for="confirm-password">Confirmar Contraseña</label> 
-            <input type="password" id="confirm-password" name="confirm-password" >
-            <p id="password-match-error" class="error-message"></p>
-            </div>-->
-              
-            <div>
-                <label for="avatar">Imagen de perfil</label>
-                <br>
-                <input type="file" name="avatar" id="avatar">  
-                <% if (locals.errors && errors.avatar) { %>
-                    <div class="error-message">
-                    <%= errors.avatar.msg %>
-                </div>
-                  <% } %>
-            </div>
+        <!--vistas parciales-->
 
-            <button type="submit" id="register-button" class="yellow-button">Registrarse</button>
-        </form>
-        <div>
-</body>
+        <body>
+
+            <div class="register-container">
+                <h2>Registro</h2>
+                <ul class="errores"></ul>
+                <form class="form" id="register-form" action="/users/register" method="POST" enctype="multipart/form-data">
+                    <div>
+                        <label for="firstName">Nombre</label>
+                        <input type="text" id="firstName" name="firstName"
+                        class="form-control <%= locals.errors && errors.firstName ? 'is-invalid' : null  %>"
+                            value="<%= locals.old && old.firstName ? old.firstName : '' %>">
+                        <% if (locals.errors && errors.firstName) { %>
+                            <div class="error-message">
+                                <%= errors.firstName.msg %>
+                            </div>
+                            <% } %>
+                                <span class="error"></span>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="lastName">Apellido</label>
+                        <br>
+                        <input type="text" id="lastName" name="lastName"
+                            value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+                        <% if (locals.errors && errors.lastName) { %>
+                            <div class="error-message">
+                                <%= errors.lastName.msg %>
+                            </div>
+                            <% } %>
+                                <span class="error"></span>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="email">Correo Electrónico</label>
+                        <br>
+                        <input type="email" id="email" name="email"
+                            value="<%= locals.old && old.email ? old.email : '' %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="error-message">
+                                <%= errors.email.msg %>
+                            </div>
+                            <% } %>
+                                <span class="error"></span>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="type" class="">Rol:</label>
+                        <select name="type" id="type" class="">
+                            <% allType.forEach(type=> { %>
+                                <option value="<%= type.id %>">
+                                    <%= type.label %>
+                                </option>
+                                <% }); %>
+                        </select>
+                        <% if (locals.errors && errors.type) { %>
+                            <div class="error-message">
+                                <%= errors.type.msg %>
+                            </div>
+                            <% } %>
+                            <br>
+                    </div>
+                    <div>
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password">
+                        <span class="error"></span>
+                        <% if (locals.errors && errors.password) { %>
+                            <div class="error-message">
+                                <%= errors.password.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="avatar">Imagen de perfil</label>
+                        <input type="file" name="avatar" id="avatar">
+                        <% if (locals.errors && errors.avatar) { %>
+                            <div class="error-message">
+                                <%= errors.avatar.msg %>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <button type="submit" id="register-button" class="yellow-button">Registrarse</button>
+                </form>
+                <div>
+                    <script src="/frontValidations/users.js"></script>
+
+        </body>
 
 </html>
-
-
-

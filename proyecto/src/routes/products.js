@@ -7,14 +7,8 @@ const multer = require("multer");
 /********** Controller Require  **********/
 const productsController = require('../controllers/productsControllers');
 
-const storage = multer.diskStorage({
-    destination:(req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/img/products'))
-    }, filename: (req, file, cb) => {
-        cb(null, `${Date.now()}_img_${path.extname(file.originalname)}`);
-    }
-  });
-  const uploadFile = multer({storage});
+const validateCreateForm = require('../middleware/validationProducts');
+const {uploadFileProducts} = require('../middleware/multerMiddleware')
 
 
 /********** LISTADO DE PRODUCTOS  **********/
@@ -23,14 +17,14 @@ router.get('/', productsController.products);
 
 /********** CREACIÓN DE PRODUCTOS  **********/
 router.get('/productCreate', productsController.create)
-router.post('/', uploadFile.single('image'), productsController.store)
+router.post('/', uploadFileProducts.single('image'), validateCreateForm, productsController.store)
 
 /********** DETALLE DE PRODUCTO  **********/
 router.get('/productDetail/:id', productsController.detail)
 
 /****** EDICIÓN DE PRODUCTOS  **********/
 router.get('/productEdit/:id', productsController.edit); 
-router.put('/:id',  uploadFile.single('image'), productsController.update);
+router.put('/:id',  uploadFileProducts.single('image'), validateCreateForm, productsController.update);
 
 /****** ELIMINACIÓN DE PRODUCTOS  **********/
 router.get('/productDelete/:id', productsController.delete);

@@ -15,3 +15,11 @@ Nuestra inspiración fue en gran medida: La app PedidosYa (La estética), https:
     SPRINT 5:
     Link del tablero actualizado
     https://trello.com/b/O3KTPp7h/sprints
+
+    SPRINT 6:
+    Link del tablero actualizado
+    https://trello.com/b/O3KTPp7h/sprints
+
+    SPRINT 7:
+    Link del tablero actualizado
+    https://trello.com/b/O3KTPp7h/sprints

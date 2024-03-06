@@ -1,14 +1,7 @@
-const fs = require('fs');
+
 //const { Module } = require('module');
-const path = require('path');
-
 const db = require('../database/models');
-//const category = require('../database/models/category');
-
-//const productsFilePath = path.join(__dirname, '../data/products.json');
-//let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-//const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");  //toma un número como entrada y devuelve una cadena con el número formateado con comas como separadores de miles
+const { validationResult } = require('express-validator');
 
 const productsControllers ={
 	products: (req, res) =>{
@@ -32,6 +25,15 @@ const productsControllers ={
     },
 	store: async (req, res) => {
 		try{
+			const allCategory = await db.Categoria.findAll()
+			const resultValidation = validationResult(req);
+			if (resultValidation.errors.length > 0) {
+				return res.render('productCreate', {
+					errors: resultValidation.mapped(),
+					old: req.body,
+					allCategory
+				})
+			}
             const productToCreate = {
             name: req.body.name,
 			price: req.body.price,
@@ -39,7 +41,7 @@ const productsControllers ={
 			description: req.body.description,
 			image: req.file.filename
             }
-            await db.Productos.create(productToCreate)    
+            db.Productos.create(productToCreate)    
 			       res.redirect('products');
            
         }catch(error){
@@ -77,13 +79,11 @@ const productsControllers ={
 				price: req.body.price,
 				categoryId: req.body.category,
 				description: req.body.description,
-				image: req.file //no se pueden editar las imagenes
 			}, {
 				where: {
 					id: req.params.id
 				}
 			});
-			console.log(req.file)
 			return res.redirect('/')
 		} catch (error) {
 			res.send(error.message)

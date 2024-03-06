@@ -3,7 +3,7 @@ const { validationResult } = require('express-validator');
 const { error } = require('console');
 const db = require('../database/models');
 
-const { ResultWithContextImpl } = require('express-validator/src/chain');
+//const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
     users: async(req, res)=>{
@@ -29,30 +29,38 @@ const usersController = {
     register: async (req, res) => {
         try {
         const allType = await db.Tipos.findAll()
-        return res.render('register', { allType })
+        return res.render('register', {allType})
         } catch (error) {
             res.send(error.message)
         }
     },
     procesarRegister: async (req, res) => {
+        const allType = await db.Tipos.findAll()
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 old: req.body,
+                allType
             })
         }
-        //let userInDB = db.Usuarios.findByField('email', req.body.email);
-        let allUsers = await db.Usuarios.findAll()
-        if (allUsers) {
+
+        let userInDB = await db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+
+        if(userInDB){ 
             res.render('register', {
                 errors: {
                     email: { msg: 'Este email ya está registrado' }
                 },
                 old: req.body,
+                allType
             })
+            return  
         }
-
         let userToCreate = {
             ...req.body,
             typeId: req.body.type,
@@ -60,15 +68,20 @@ const usersController = {
             avatar: req.file.filename,
 
         }
-        db.Usuarios.create(userToCreate);
+    db.Usuarios.create(userToCreate);
         return res.redirect('login');
 
     },
     login: (req, res) => {
         return res.render('login');
     },
-    procesarLogin: (req, res) => {
-        let userToLogin = userModel.findByField('email', req.body.email);
+    procesarLogin: async(req, res) => {
+        let userInDB = await db.Usuarios.findOne({
+            where: {
+                email: req.body.email
+            }
+        });
+        let userToLogin = userInDB;
         if (userToLogin) {
             let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password)
             if (isOkThePassword) {
