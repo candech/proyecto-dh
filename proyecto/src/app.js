@@ -46,6 +46,10 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 //app.use(logMiddleware);
 
+//*********** rutas de APIs ******************
+
+const usersApiRoutes = require ('./routes/APIs/usersApiRoutes');
+const productsApiRoutes = require ('./routes/APIs/productsApiRouter');
 
 
 // ************ error handler ************
