@@ -12,6 +12,12 @@ const bcrypt = require('bcryptjs');//encriptaciíon de contraseñas
 // ************ express() ************
 const app = express();
 
+//*********** rutas de APIs ******************
+
+const usersApiRoutes = require('./routes/api/usersApiRoutes');
+const productsApiRouter = require('./routes/api/productsApiRouter');
+
+
 // ************ Middlewares ************
 app.use(express.static(path.join(__dirname, 'public')));// Necesario para los archivos estáticos en el folder /public
 
@@ -46,15 +52,14 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 //app.use(logMiddleware);
 
+
+
 //*********** use APIs ****************** 
 
-app.use('/api/products', productsApiRoutes)
+app.use('/api/products', productsApiRouter)
 app.use('/api/users', usersApiRoutes)
 
-//*********** rutas de APIs ******************
 
-const usersApiRoutes = require ('./routes/APIs/usersApiRoutes');
-const productsApiRoutes = require ('./routes/APIs/productsApiRouter');
 
 
 
