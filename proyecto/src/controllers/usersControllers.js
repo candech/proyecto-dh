@@ -2,26 +2,24 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { error } = require('console');
 const db = require('../database/models');
+/* const fetch = require('node-fetch'); */
+const path = require('path');
 
 //const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
-    users: async(req, res)=>{
+    list: async(req, res)=>{
         try {
-            db.Usuarios.findAll()
-            .then((user)=>{
-                return res.render('users',{users: user})
-            })
+         let users = await db.Usuarios.findAll()
+        return res.render('users',{users})   
          } catch (error) {
             res.send(error.message)
          }
     },
     detail: async(req,res)=>{
         try {
-			db.Usuarios.findByPk(req.params.id)
-            .then(user => {
-                res.render('userDetail', {user});
-            });
+		let user = await db.Usuarios.findByPk(req.params.id)
+        res.render('userDetail', {user});
 		} catch (error) {
 			res.send(error.message)
 		}
@@ -36,7 +34,6 @@ const usersController = {
     },
     procesarRegister: async (req, res) => {
         const allType = await db.Tipos.findAll()
-        
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             return res.render('register', {

@@ -13,8 +13,8 @@ const {uploadFileUsers} = require('../middleware/multerMiddleware')
 //Validaciones
 const validateRegisterForm = require('../middleware/validationUsers');
 
-router.get('/', usersController.users)
-router.get('/userDetail/:id', usersController.detail)
+router.get('/', usersController.list)
+router.get('/detail/:id', usersController.detail)
 
 
 /********** registro  **********/

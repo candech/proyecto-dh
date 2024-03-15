@@ -1,4 +1,4 @@
-const db = require('../../database/models');
+/* const db = require('../../database/models');
 
 const productsApiController = {
 
@@ -21,4 +21,4 @@ const productsApiController = {
 
 }
 
-module.exports = productsApiController;
+module.exports = productsApiController; */

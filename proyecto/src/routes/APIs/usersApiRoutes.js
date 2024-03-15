@@ -2,29 +2,19 @@ const express = require('express');
 const path = require ('path');
 const router = express.Router();
 /********** Controller Require  **********/
-const usersApiController = require('../controllers/usersApiController');
-/********** Controller Require  **********/
-const guestMiddleware = require('../middleware/guestMiddleware');
-const authMiddleware = require('../middleware/authMiddleware');
+const usersApiController = require('../../controllers/APIs/usersApiController')
 
-const {uploadFileUsers} = require('../middleware/multerMiddleware')
-
-//Validaciones
-const validateRegisterForm = require('../middleware/validationUsers');
-
-router.get('/', usersApiController.users)
-router.get('/userDetail/:id', usersApiController.detail)
+router.get('/', usersApiController.list)
+router.get('/:id', usersApiController.detail)
 
 
 /********** registro  **********/
-router.get('/register', guestMiddleware, usersApiController.register);
-router.post('/register', uploadFileUsers.single('avatar'), validateRegisterForm, usersApiController.procesarRegister);
+
+router.post('/register', usersApiController.register);
 
 /********** login **********/
-router.get('/login',  guestMiddleware, usersApiController.login);
-router.post('/login' , usersApiController.procesarLogin);
-router.get('/profileUser', authMiddleware, usersApiController.profileUser);
-router.get('/logout/', usersApiController.logout);
-
+/* router.get('/login', usersApiController.login);
+router.delete('/logout/', usersApiController.logout);
+ */
 
 module.exports = router;

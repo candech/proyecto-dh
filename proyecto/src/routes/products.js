@@ -16,18 +16,18 @@ router.get('/', productsController.products);
 
 
 /********** CREACIÓN DE PRODUCTOS  **********/
-router.get('/productCreate', productsController.create)
+router.get('/create', productsController.create)
 router.post('/', uploadFileProducts.single('image'), validateCreateForm, productsController.store)
 
 /********** DETALLE DE PRODUCTO  **********/
-router.get('/productDetail/:id', productsController.detail)
+router.get('/detail/:id', productsController.detail)
 
 /****** EDICIÓN DE PRODUCTOS  **********/
-router.get('/productEdit/:id', productsController.edit); 
+router.get('/edit/:id', productsController.edit); 
 router.put('/:id',  uploadFileProducts.single('image'), validateCreateForm, productsController.update);
 
 /****** ELIMINACIÓN DE PRODUCTOS  **********/
-router.get('/productDelete/:id', productsController.delete);
+router.get('/delete/:id', productsController.delete);
 router.delete('/:id', productsController.destroy)
 
 /********** muestra el carrito  **********/
