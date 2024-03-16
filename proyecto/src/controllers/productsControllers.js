@@ -1,7 +1,9 @@
 
 //const { Module } = require('module');
+const path = require("path");
 const db = require('../database/models');
 const { validationResult } = require('express-validator');
+const fs = require("fs");
 
 const productsControllers ={
 	products: (req, res) =>{
@@ -28,6 +30,8 @@ const productsControllers ={
 			const allCategory = await db.Categoria.findAll()
 			const resultValidation = validationResult(req);
 			if (resultValidation.errors.length > 0) {
+				const deletedFile = path.resolve(__dirname, "../public/img/products", req.file.filename)
+				fs.unlinkSync(deletedFile)
 				return res.render('productCreate', {
 					errors: resultValidation.mapped(),
 					old: req.body,

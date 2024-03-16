@@ -67,7 +67,7 @@ const validations = [
             {
                 validator: isEmpty,
                 errorMsg: "Este campo es obligatorio"
-            }
+            },
         ]
     },
     //falta validar select e imagen que no son inputs

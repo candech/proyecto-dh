@@ -2,9 +2,8 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const { error } = require('console');
 const db = require('../database/models');
-/* const fetch = require('node-fetch'); */
-const path = require('path');
-
+const path = require("path");
+const fs = require("fs");
 //const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
@@ -36,6 +35,9 @@ const usersController = {
         const allType = await db.Tipos.findAll()
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
+            const deletedFile = path.resolve(__dirname, "../public/img/users", req.file.filename)
+				fs.unlinkSync(deletedFile)
+            // aqui eliminar img si hay errores, buscar nombre de img en req y utilizar metodo fs.unliksync para eliminar img
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 old: req.body,
