@@ -4,7 +4,7 @@ const path = require('path');
 const multer = require("multer");
 
 /********** Controller Require  **********/
-const productsApiController = require('../../controllers/api/productsApiController');
+const productsApiController = require('../../controllers/APIs/productsApiController');
 
 const validateCreateForm = require('../../middleware/validationProducts');
 const {uploadFileProducts} = require('../../middleware/multerMiddleware')

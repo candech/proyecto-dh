@@ -61,9 +61,11 @@ const usersController = {
             return  
         }
         let userToCreate = {
-            ...req.body,
-            typeId: req.body.type,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
+            typeId: req.body.type,
             avatar: req.file.filename,
             
         }

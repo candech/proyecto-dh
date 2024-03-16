@@ -12,10 +12,6 @@ const bcrypt = require('bcryptjs');//encriptaciíon de contraseñas
 // ************ express() ************
 const app = express();
 
-//*********** rutas de APIs ******************
-
-const usersApiRoutes = require('./routes/api/usersApiRoutes');
-const productsApiRouter = require('./routes/api/productsApiRouter');
 
 
 // ************ Middlewares ************
@@ -52,19 +48,15 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 //app.use(logMiddleware);
 
+//*********** rutas de APIs ******************
 
+const usersApiRoutes = require('./routes/APIs/usersApiRoutes');
+const productsApiRouter = require('./routes/APIs/productsApiRouter');
 
 //*********** use APIs ****************** 
 
 app.use('/api/products', productsApiRouter)
 app.use('/api/users', usersApiRoutes)
-
-
-
-//*********** use APIs ****************** 
-
-//app.use('/products', productsApiRoutes)
-app.use('/users', usersApiRoutes)
 
 // ************ error handler ************
 /*app.use((err, req, res, next) => {
