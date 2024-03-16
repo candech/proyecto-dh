@@ -50,8 +50,8 @@ app.use('/users', usersRouter);
 
 //*********** rutas de APIs ******************
 
-const usersApiRoutes = require('./routes/APIs/usersApiRoutes');
 const productsApiRouter = require('./routes/APIs/productsApiRouter');
+const usersApiRoutes = require('./routes/APIs/usersApiRoutes');
 
 //*********** use APIs ****************** 
 

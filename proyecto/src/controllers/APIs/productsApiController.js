@@ -1,33 +1,50 @@
 const db = require('../../database/models');
-const path=require("path")
+const path = require("path")
 
 const productsApiController = {
 
-    products:(req,res)=>{
-        
-        db.Productos.findAll()
-        .then(products => {
-            res.json({
-                meta: {
+    products: async(req,res)=>{
+        try {
+            let products = await db.Productos.findAll(
+                {include: ['category']}
+            )
+            //let categories = await db.Categoria.findAll()
+            return res.json({
+                meta:{
                     status: 200,
-                    length: products.length,
-                    url: req.originalUrl
+                    count: products.length,
+                    detail: req.originalUrl,
                 },
-                data: { ...products },
-            })
-            .catch(error=>res.send(error))
-        })
+                /* countByCategory:{
+                    categories:{
+                        inSale: inSale.length
+                    }
+                }, */
+                data: {...products},
+               })
+        } catch (error) {
+            console.log(error.message)
+        }
     },
    
-    detail:(req,res)=>{},
-    store:(req,res)=>{},
-    destroy:(req,res)=>{},
-    productCart:(req,res)=>{},
-    update:(req,res)=>{},
-    create:(req,res)=>{},
-    delete:(req,res)=>{},
-    edit:(req,res)=>{}
-    
+    detail: async(req,res)=>{
+        try {
+            let product = await db.Productos.findByPk(req.params.id)
+            const imageUrl = `${req.protocol}://${req.get('host')}/img/products/${product.image}`;
+            return res.status(200).json({
+                meta:{
+                status: 200,
+                url: req.originalUrl
+            },
+            data: {
+                product,
+                image: imageUrl
+            }
+        })
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
 }
 
