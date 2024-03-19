@@ -6,19 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    inSale: {
-      type: DataTypes.STRING,
-      allowNull: false,
-
-    },
-    visited: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    vegan: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     code: {
       type: DataTypes.STRING,
       allowNull: false,

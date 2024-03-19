@@ -5,12 +5,19 @@ const productsApiController = {
 
     products: async(req,res)=>{
         try {
-            let products = await db.Productos.findAll()
+            let products = await db.Productos.findAll({include:["category"]})
+            let categories=await db.Categoria.findAll({include:["products"]})
+            const countByCategory = {}
+            categories.map(category => {
+                countByCategory[category.code]=category.products.length
+            });
+            console.log(countByCategory)
                     return res.json({
                         meta:{
                             status: 200,
                             count: products.length,
                             detail: req.originalUrl,
+                            countByCategory:countByCategory
 
                         },
                         data: {...products},
@@ -31,9 +38,9 @@ const productsApiController = {
                 status: 200,
                 url: req.originalUrl
             },
-            data: {
-                product,
-                image: imageUrl
+                data: {
+                    product,
+                    image: product.image || imageUrl
             }
         })
         } catch (error) {

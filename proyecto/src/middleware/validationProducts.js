@@ -14,6 +14,7 @@ const validateCreateForm = [
         let fileExtension = path.extname(file.originalname);
         let acceptedExtensions = ['.jpeg', '.jpg', '.png', '.gif'];
         if (!acceptedExtensions.includes(fileExtension)) {
+     
           throw new Error(`El archivo debe ser una imagen con extensión ${acceptedExtensions.join(',')}`);
         }
         

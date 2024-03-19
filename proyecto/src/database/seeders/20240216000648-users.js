@@ -5,8 +5,8 @@ const { faker } = require("@faker-js/faker");
 module.exports = {
   async up(queryInterface, Sequelize) {
 
-    const users = [];
-    Array(20)
+    const users = []
+      Array(20)
       .fill(0)
       .forEach((_, i) => {
         const idRandom = Math.round(Math.random()) + 1
@@ -21,7 +21,10 @@ module.exports = {
         };
         users.push(randomUser);
       })
-    await queryInterface.bulkInsert('users', users);
+    
+      
+      
+    await queryInterface.bulkInsert('users', users,{});
   },
 
   async down(queryInterface, Sequelize) {
