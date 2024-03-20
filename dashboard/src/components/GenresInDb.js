@@ -22,13 +22,13 @@ export class GenresInDb extends Component {
         }
     }
     componentDidMount() {
-        fetch('/api/genres')
+        fetch('/api/products')
             .then(respuesta => {
                 return respuesta.json()
             })
             .then(genres => {
-                //console.log(genres)
-                this.setState({ genresList: genres.data })
+                console.log(genres)
+                // this.setState({ genresList: genres.data })
             })
             .catch(error => console.log(error))
     }
@@ -36,8 +36,8 @@ export class GenresInDb extends Component {
     render() {
         return (
             <div>
-                <React.Fragment>
-                    {/*<!-- Categories in DB -->*/}
+                {/* <React.Fragment>
+                 
                     <div className="col-lg-6 mb-4">
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
@@ -55,7 +55,7 @@ export class GenresInDb extends Component {
                         </div>
                     </div>
 
-                </React.Fragment>
+                </React.Fragment> */}
             </div>
         )
     }

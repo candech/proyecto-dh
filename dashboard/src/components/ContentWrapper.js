@@ -1,8 +1,11 @@
 import React from 'react';
 import Header from './Header';
-import ContentRowTop from './ContentRowTop';
-import Movie from './Movie';
+// import ContentRowTop from './ContentRowTop';
+// import Movie from './Movie';
 import Footer from './Footer';
+import {Route, Link, Routes} from "react-router-dom";
+import Register from './Register';
+
 function ContentWrapper(){
     return (
         <React.Fragment>
@@ -12,7 +15,10 @@ function ContentWrapper(){
                 <div id="content">
                     <Header />
                     <ContentRowTop />
-                    <Movie />
+                    <Movie /> 
+                    <Routes>
+                        <Route path="/users/register" exact={true} element={<Register/>}></Route>
+                    </Routes>
                     <Footer />
                 </div>
             </div>    

@@ -1,4 +1,7 @@
 import React from 'react';
+import Register from './Register';
+import {Route, Link, Routes} from "react-router-dom";
+
 /* import foto from '../assets/images/jordan-walke.png'; */
 
 function Header(){
@@ -45,9 +48,12 @@ function Header(){
                      } else {  */}
                         <ul>
                             <li><a className="nav-button" href="/users/login">Iniciar Sesión </a></li>
-                            <li><a className="nav-button" href="/users/register"> Registrarse</a></li>
+                            <Link to="/users/register" exact="true">Registrarse</Link>
+
                         </ul>
+                        
                        {/*  } */}
+                       
             </div>
         </nav>
     </div>
