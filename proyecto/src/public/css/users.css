@@ -1,0 +1,122 @@
+/*REGISTER*/
+
+.register-container {
+    width: 30%;
+    height: 30;
+    color: white;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(36, 36, 36);
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 10px 0px white; /* Sombra para el contenedor del formulario */
+}
+
+/* Estilos para los campos de entrada de texto */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding: 8px; /* Añade relleno para espacio interno */
+    margin-bottom: 15px; /* Agrega espacio entre los campos */
+    border-radius: 15px; /* Hace los bordes redondos */
+    border: 2px solid #ccc; /* Agrega un borde para definir el área del campo de entrada */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del campo */
+}
+
+.yellow-button {
+    background-color: #FDD835;
+    color: black; /* Cambia el color del texto para asegurar la visibilidad */
+    border: none;
+    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.yellow-button:hover {
+    background-color: #fde471; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
+#register-button {
+    display: block;
+    margin: auto; /* Centra el botón horizontalmente */
+}
+
+
+.logo {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.logo img {
+    width: 10vw; /* Tamaño del logo, ajusta según sea necesario */
+    height: auto;
+}
+
+/* Estilos para pantallas grandes (computadoras) */
+@media (min-width: 1024px) {
+    /* Estilos específicos para pantallas grandes */
+}
+
+/* Estilos para tablets */
+@media (max-width: 1023px) and (min-width: 768px) {
+    /* Estilos específicos para tablets */
+}
+
+/* Estilos para smartphones */
+@media (max-width: 767px) {
+    /* Estilos específicos para smartphones */
+}
+
+
+
+
+/*LOGIN*/
+
+.login-container {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(36, 36, 36);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px white; /* Sombra para el contenedor del formulario */
+    text-align: center;
+}
+
+/* Estilos para los campos de entrada de texto */
+input[type="text"], input[type="password"] {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding: 10px; /* Añade relleno para espacio interno */
+    margin-bottom: 15px; /* Agrega espacio entre los campos */
+    border-radius: 15px; /* Hace los bordes redondos */
+    border: 2px solid #ccc; /* Agrega un borde para definir el área del campo de entrada */
+    box-sizing: border-box; /* Incluye el relleno y el borde en el tamaño total del campo */
+}
+
+a {
+    color: #000000; /* Cambia el color del enlace para que coincida con el botón */
+    text-decoration: none; /* Quita la subrayado del enlace */
+    margin-bottom: 15px; /* Agrega espacio entre el enlace y los campos de entrada */
+    display: block; /* Hace que el enlace sea un bloque para ocupar todo el ancho */
+}
+
+.yellow-button {
+    background-color: #FDD835;
+    color: black; /* Cambia el color del texto para asegurar la visibilidad */
+    border: none;
+    padding: 10px 20px; /* Ajusta el relleno según tus preferencias */
+    border-radius: 5px; /* Agrega bordes redondeados al botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.yellow-button:hover {
+    background-color: #fde471; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
+#register-button {
+    display: block;
+    margin: auto; /* Centra el botón horizontalmente */
+}

@@ -15,9 +15,11 @@
                     <p>$<%= product.price%></p>
                 <a class="product-add-to-cart-button" href="/products/productCart">Agregar al Carrito <i
                         class="fas fa-shopping-basket"></i></a>
-                <a href="/products/productEdit/<%= product.id%>">EDITAR PRODUCTO</a>
+                <a href="/products/edit/<%= product.id%>">EDITAR PRODUCTO</a>
+                
                 </div>
             </section>
+            
             <!-- footer -->
 	<%- include('./partials/footer') %>
     
