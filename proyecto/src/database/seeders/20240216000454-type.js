@@ -8,7 +8,8 @@ module.exports = {
       await queryInterface.bulkInsert('type', [{
       code: 'admin',
       label: 'Administrador'
-      },{
+      },
+      {
         code: 'customer',
         label: 'Consumidor'
       }], {});

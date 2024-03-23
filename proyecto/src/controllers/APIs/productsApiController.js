@@ -6,10 +6,10 @@ const productsApiController = {
     products: async(req,res)=>{
         try {
             let products = await db.Productos.findAll({include:["category"]})
-            let categories=await db.Categoria.findAll({include:["products"]})
+            let categories = await db.Categoria.findAll({include:["products"]})
             const countByCategory = {}
             categories.map(category => {
-                countByCategory[category.code]=category.products.length
+                countByCategory[category.code] = category.products.length
             });
             console.log(countByCategory)
                     return res.json({
@@ -17,10 +17,11 @@ const productsApiController = {
                             status: 200,
                             count: products.length,
                             detail: req.originalUrl,
-                            countByCategory:countByCategory
+                            countByCategory: countByCategory
 
                         },
-                        data: {...products},
+                        data: products,
+                        image: products.image
                     })
                 } catch (error) {
                     console.log(error.message)

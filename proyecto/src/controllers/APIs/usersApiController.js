@@ -9,7 +9,7 @@ const API_BASE_URL = 'http://localhost:3002';
 const usersApiController= {
 list: async(req,res)=>{
     try {
-        let users = await db.Usuarios.findAll()
+        let users = await db.Usuarios.findAll({include: ['type']})
         return res.json({
             meta:{
                 status: 200,
@@ -17,7 +17,7 @@ list: async(req,res)=>{
                 detail: req.originalUrl,
                 
             },
-            data: {...users},
+            data: users,
            })
     } catch (error) {
         console.log(error.message)

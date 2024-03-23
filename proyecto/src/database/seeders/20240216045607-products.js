@@ -12,7 +12,7 @@ module.exports = {
           price:8560, 
           categoryId:2 ,
           description:"salsa de tomate, mozzarella y orégano o albahaca fresca",
-          image:"https://codigoqr.com.ar/pizzeria-popular-casino/img/pizzas/margherita.jpg"
+          image:"margherita.jpg"
       },
       {
           id: 2,
@@ -20,7 +20,7 @@ module.exports = {
           price: 10500, 
           categoryId: 1,
           description:"salsa de tomate, mozzarella, tomate, ajo y orégano",
-          image:"https://codigoqr.com.ar/pizzeria-popular-casino/img/pizzas/napoletana.jpg"
+          image:"napoletana.jpg"
       },
       {
           id:3,
@@ -28,7 +28,7 @@ module.exports = {
           price: 9600, 
           categoryId: 3,
           description:"queso mozzarella y cebolla",
-          image:"https://codigoqr.com.ar/pizzeria-popular-casino/img/pizzas/fugazzetta.jpg"
+          image:"fugazzetta.jpg"
       },
       {
           id:4,
@@ -36,7 +36,7 @@ module.exports = {
           price: 10670, 
           categoryId: 2,
           description:"rodajas de tomate, mozzarella, anchoas y orégano",
-          image:"https://codigoqr.com.ar/pizzeria-popular-casino/img/pizzas/putanesca.jpg"
+          image:"putanesca.jpg"
       },
       {
           id:5,
@@ -44,8 +44,24 @@ module.exports = {
           price: 12000, 
           categoryId: 1,
           description:"salsa de tomate, mozzarella y pepperoni original estilo new york city",
-          image:"https://codigoqr.com.ar/pizzeria-popular-casino/img/pizzas/pepperoni-2.jpg"
+          image:"pepperoni-2.jpg"
       },
+      {
+        id:6,
+        name:"Pizza Napolitana Vegana" ,
+        price: 7000, 
+        categoryId: 3,
+        description:"Queso vegano a base de soja, tomate, perejil y orégano",
+        image:"PIZZA-NAPOLETANA-SIN-TACC.jpg"
+    },
+    {
+      id:7,
+      name:"Cacciatore" ,
+      price: 8950, 
+      categoryId: 2,
+      description:"salsa de tomate, mozzarella, pollo cacciatore, cebolla, crema de pimientos, perejil.",
+      image:"PIZZA-POLLO-CACCIATORE.jpg"
+  },
   ];
     /*Array(5)
       .fill(0)

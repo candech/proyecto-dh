@@ -5,22 +5,39 @@ const { faker } = require("@faker-js/faker");
 module.exports = {
   async up(queryInterface, Sequelize) {
 
-    const users = []
-      Array(20)
+    const users = [
+      {id: 1,
+      firstName: 'cande',
+      lastName: 'ch',
+      email: 'cande@admin.com',
+      password: 'pizzarock',
+      typeId: 1,
+      avatar: 'https://www.nicepng.com/png/detail/348-3488420_this-is-pizza-steve-of-of-cartoon-network.png',
+    },
+      {id: 2,
+      firstName: 'jennifer',
+      lastName: 'villagra',
+      email: 'jennifer@admin.com',
+      password: 'pizzarock',
+      typeId: 1,
+      avatar: faker.image.avatar(),
+    },
+    ]
+       Array(20)
       .fill(0)
       .forEach((_, i) => {
-        const idRandom = Math.round(Math.random()) + 1
+        
         const randomUser = {
-          id: i + 1,
+          id: i + 3,
           firstName: faker.person.firstName(),
           lastName: faker.person.lastName(),
           email: faker.internet.email(),
           password: faker.internet.password({ length: 20 }),
-          typeId: idRandom,
+          typeId: 2,
           avatar: faker.image.avatar(),
         };
         users.push(randomUser);
-      })
+      }) 
     
       
       
