@@ -1,5 +1,11 @@
 import React from 'react';
 import image from '../assets/images/logo1.png';
+import ContentWrapper from './ContentWrapper';
+import Products from './Products';
+import LastProductInDb from './LastProductInDb';
+import Users from './Users';
+import NotFound from './NotFound';
+import {Link, NavLink, Route, Routes} from 'react-router-dom';
 
 function SideBar(){
     return(
@@ -19,9 +25,9 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - PIZZA ROCK</span></a>
+                        <span>Dashboard - PIZZA ROCK</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -32,31 +38,38 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="/">
+                <NavLink className="nav-link" to="/products">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </a>
+                        <span>Productos</span>
+                    </NavLink>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <NavLink className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
+                        <span>Ultimo producto creado</span></NavLink>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item">
-                    <a className="nav-link" href="/">
+                <li className="nav-item nav-link">
+                <NavLink className="nav-link" to="/users">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
+                        <span>Usuarios</span></NavLink>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
-            {/*<!-- End of Sidebar -->*/}
-            
+           
+            <Routes>
+                <Route exact path="/" component={ContentWrapper}/>
+                <Route path="/products" exact={true} element={Products}></Route>
+                <Route path="/LastProductInDb" exact={true} element={LastProductInDb}></Route>
+                <Route path="/users" exact={true} element={Users}></Route>
+                <Route path='*' element={NotFound} />
+            </Routes>
+           
         </React.Fragment>
     )
 }
