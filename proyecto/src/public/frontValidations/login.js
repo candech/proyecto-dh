@@ -1,40 +1,17 @@
 const isEmpty = (input) => input.value && input.value.trim() !== "";
-
+const isEmail = (input) => input.value.includes('@');
 const validations = [
-    {
-        inputName: "firstName",
-        validations: [
-            {
-                validator: isEmpty,
-                errorMsg: "Este campo es obligatorio"
-            },
-            {
-                validator: (input) => input.value.length >= 2,
-                errorMsg: "El nombre debe tener al menos 2 caracteres"
-            }
-        ]
-    },
-    {
-        inputName: "lastName",
-        validations: [
-            {
-                validator: isEmpty,
-                errorMsg: "Este campo es obligatorio"
-            },
-            {
-                validator: (input) => input.value.length >= 2,
-                errorMsg: "El apellido debe tener al menos 2 caracteres"
-            }
-        ]
-    },
     {
         inputName: "email",
         validations: [
             {
                 validator: isEmpty,
                 errorMsg: "Este campo es obligatorio"
-            }
-           
+            },
+            {
+                validator: isEmail,
+                errorMsg: "debes ingresar un email valido"
+            },
         ]
     },
     {
@@ -43,24 +20,9 @@ const validations = [
             {
                 validator: isEmpty,
                 errorMsg: "Este campo es obligatorio"
-            },
-            {
-                validator: (input) => input.value.length >= 8,
-                errorMsg: "La contraseña debe tener un minimo de 8 caracteres"
             }
         ]
-    },
-    ,
-    {
-        inputName: "avatar",
-        validations: [
-            {
-                validator: isEmpty,
-                errorMsg: "Este campo es obligatorio"
-            },
-        ]
-    },
-    //falta validar select e imagen que no son inputs
+    }
 
 ]
 window.addEventListener("load", function () {    

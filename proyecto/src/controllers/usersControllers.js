@@ -9,6 +9,7 @@ const fs = require("fs");
 const usersController = {
     list: async(req, res)=>{
         try {
+            console.log('contraseña', bcryptjs.hashSync('pizzarock'))
          let users = await db.Usuarios.findAll()
         return res.render('users',{users})   
          } catch (error) {
@@ -25,14 +26,12 @@ const usersController = {
     },
     register: async (req, res) => {
         try {
-        const allType = await db.Tipos.findAll()
-        return res.render('register', {allType})
+        return res.render('register',)
         } catch (error) {
             res.send(error.message)
         }
     },
     procesarRegister: async (req, res) => {
-        const allType = await db.Tipos.findAll()
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
             const deletedFile = path.resolve(__dirname, "../public/img/users", req.file.filename)
@@ -41,7 +40,6 @@ const usersController = {
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 old: req.body,
-                allType
             })
         }
         let userInDB = await db.Usuarios.findOne({
@@ -56,7 +54,6 @@ const usersController = {
                     email: { msg: 'Este email ya está registrado' }
                 },
                 old: req.body,
-                allType
             })
             return  
         }
@@ -65,9 +62,8 @@ const usersController = {
             lastName: req.body.lastName,
             email: req.body.email,
             password: bcryptjs.hashSync(req.body.password, 10),
-            typeId: req.body.type,
             avatar: req.file.filename,
-            
+
         }
         db.Usuarios.create(userToCreate);
         
@@ -78,6 +74,13 @@ const usersController = {
         return res.render('login');
     },
     procesarLogin: async(req, res) => {
+       /*  const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0) {
+            return res.render('profileUser', {
+                errors: resultValidation.mapped(),
+                old: req.body,
+            })
+        } */
         let userInDB = await db.Usuarios.findOne({
             where: {
                 email: req.body.email
@@ -94,7 +97,6 @@ const usersController = {
                     res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                 }
                 return res.redirect('profileUser')
-
             }
             return res.render('login', {
                 errors: {
@@ -113,7 +115,7 @@ const usersController = {
         })
     },
     profileUser: (req, res) => {
-        console.log(req.cookies.userEmail)
+        //console.log(req.cookies.userEmail)
         res.render('profileUser', {
             user: req.session.userLogged
         });

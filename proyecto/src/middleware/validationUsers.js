@@ -1,10 +1,11 @@
 const { body, check } = require('express-validator');
 const path = require('path');
+const { error } = require('console');
+
 const validateRegisterForm = [
     body('firstName').notEmpty().isLength({ min: 2 }),
     body('lastName').notEmpty().isLength({ min: 2 }),
     body('email').notEmpty().bail().isEmail(),
-    body('type').notEmpty().withMessage('Debes elegir un rol'),
     body('password').notEmpty().bail().isLength({ min: 8 }),
     body('avatar').custom((value, {req}) => {
         let file = req.file;
@@ -21,4 +22,9 @@ const validateRegisterForm = [
       })
 ]
 
-module.exports = validateRegisterForm;
+const validateLoginForm = [
+  body('email').notEmpty().bail().isEmail(),
+  body('password').notEmpty().bail(),
+]
+
+module.exports = {validateRegisterForm, validateLoginForm};

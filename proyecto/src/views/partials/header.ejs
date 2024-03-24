@@ -13,22 +13,13 @@
                 </ul>
             </div>
         </nav>
-        <div>
-            <form action="/search" method="get">
-                <div class="input">
-                    <input type="text" name="keyword" placeholder="Buscar ..." class="search-bar">
-                </div>
-                <div class="submit">
-                    <button type="submit" class="bnt-search"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </div>
-            </form>
-        </div>
+        
         <nav>
             <div class="user-nav">
                 <% if(locals.isLogged) { %>
                     <ul class="profileUser">
                         <li><a href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/img/users/<%= locals.userLogged.avatar %>" width="35"
+                                <img src="<%= locals.userLogged.avatar %>" width="35"
                                     style="border-radius: 100%;">
                                 Hi <%= locals.userLogged.firstName %>
                             </a>
@@ -47,6 +38,16 @@
                         <%}%>
             </div>
         </nav>
+        <div>
+            <form action="/search" method="get">
+                <div class="input">
+                    <input type="text" name="keyword" placeholder="Buscar ..." class="search-bar">
+                </div>
+                <div class="submit">
+                    <button type="submit" class="bnt-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
     </div>
 
 </header>

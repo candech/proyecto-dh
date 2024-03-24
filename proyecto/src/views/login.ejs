@@ -8,30 +8,37 @@
             <div class="form-container">
                 <div class="login-container">
                     <main class="login">
-                        <form action="/users/login" method="post">
-                            <label for="email"> Email</label>
+                        <form class="form" action="/users/login" method="post">
+                            <div>
+                                <label for="email"> Email</label>
 
-                            <input type="text" name="email" placeholder="Coloque su email" />
+                                <input type="text" name="email" placeholder="Ingresá tu email" />
 
-                            <% if (locals.errors && errors.email) { %>
-                                <div class="error-message">
-                                    <%= errors.email.msg %>
-                                </div>
+                                <% if (locals.errors && errors.email) { %>
+                                    <div class="error-message">
+                                        <%= errors.email.msg %>
+                                    </div>
 
-                                <% } %>
-                                    <label for="password">Contraseña</label>
-                                    <input type="password" name="password" placeholder="Ingresar tu contraseña" />
-                                    <label for=""><input type="checkbox" name="recordarUsuario" />Recordar mi
-                                        usuario
-                                    </label>
-                                    <br />
-                                    <!-- <a href="/olvido-contrasena">¿Olvidaste tu contraseña?</a> -->
-                                    <!-- Enlace para restablecer la contraseña -->
-                                    <input type="submit" value="INICIAR SESIÓN" />
+                                    <% } %>
+                                    <span class="error"></span>
+                            </div>
+                            <div>
+                                <label for="password">Contraseña</label>
+                                <input type="password" name="password" placeholder="Ingresá tu contraseña" />
+                                <span class="error"></span>
+                               <!--  <label for=""><input type="checkbox" name="recordarUsuario" />Recordar mi
+                                    usuario
+                                </label> -->
+                            </div>
+                            <br />
+                            <!-- <a href="/olvido-contrasena">¿Olvidaste tu contraseña?</a> -->
+                            <!-- Enlace para restablecer la contraseña -->
+                            <input type="submit" value="INICIAR SESIÓN" />
                         </form>
                     </main>
                 </div>
             </div>
+            <script src="/frontValidations/login.js"></script>
         </body>
 
 </html>

@@ -1,5 +1,7 @@
 /*REGISTER*/
-
+.error-message{
+    color: red;
+}
 .register-container {
     width: 30%;
     height: 30;

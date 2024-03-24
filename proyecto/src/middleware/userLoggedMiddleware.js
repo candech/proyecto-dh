@@ -1,4 +1,4 @@
-/* const userModel = require('../models/User');
+/* const userModel = require('../controllers/usersControllers');
 
 function userLoggedMiddleware(req, res, next) {
 

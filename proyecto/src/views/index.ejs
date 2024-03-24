@@ -12,14 +12,13 @@
     
     <section >                
         <h2 class="subtitulo">MENU</Menu></h2>
-    <!-- Show the "visited" products -->
-    <% for (product of products) { %>
+<% for (product of products) { %>
         <div>
             <section id="menu">
                 <a href="/products/detail/<%= product.id %>">
                     <h2><%= product.name %></h2>
                     <figure class="product-box_image">
-                        <img src="/img/products/<%= product.image %>" alt="imagen de producto">
+                        <img src="/img/products/<%= product.image %>" style="width: 30vw;" alt="imagen de producto">
                     </figure>
                     <article >
                         <h2>$<%= product.price %></h2>
@@ -28,7 +27,6 @@
             </section>
         </div>
         <% } %>
-<!-- /ultima visita -->
 <a href="/products"> <button type="text">Ver todos los productos</button></a>
 
           

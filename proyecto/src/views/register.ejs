@@ -63,25 +63,6 @@
                             <% } %>
                             
                         </div>
-                        <div>
-                            <label for="type" class="">Rol:</label>
-                            <select name="type" id="type" class=""
-                            <%= locals.errors && errors.type ? 'is-invalid' : null  %>>
-                                <option value="">Elegí un rol</option>
-                                <% allType.forEach(type=> { %>
-                                    <option value="<%= type.id %>"
-                                        <%= locals.old && (type.id === old.type.id) ? 'selected' : null %>>
-                                        <%= type.label %>
-                                    </option>
-                                    <% }); %>
-                            </select>
-                            <% if (locals.errors && errors.type) { %>
-                                <div class="error-message">
-                                    <%= errors.type.msg %>
-                                </div>
-                                <% } %>
-                                <span class="error"></span>
-                        </div>
                     <div>
                         <label for="avatar">Imagen de perfil</label>
                         <input type="file" name="avatar" id="avatar" accept=".jpg,.jpeg,.gif,.png"

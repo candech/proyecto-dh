@@ -11,12 +11,11 @@
    <form action="/users/login" method="get">
    
      <section>
-         <h2> WELCOME <%=  user.firstName  %></h2>
+         <h2> HOLA! <%=  user.firstName  %></h2>
         <div>
             <figure>
-                <img src="/img/users/<%= user.avatar%>" alt="">
+                <img src="<%= user.avatar%>" alt="" width="100">
             </figure>
-            <h3>ID: <%= user.id  %></h3>
         </div>
         <div >
             <h3><%=  user.firstName %> <%= user.lastName %></h3>
@@ -24,11 +23,12 @@
                 <p>Categoría: <%=  user.type %></p>
             <% }  %>
             <p>Email: <a href="<%= user.email  %>" target="_blank"><%= user.email  %></a></p>
-            <div>
+            <!-- <div>
                 <a class="button" href="/users/<%=  user.id  %>">Ver detalle</a>
-            </div>
+            </div> -->
         </div>
      </section>
    </form>
+   <%- include('./partials/footer') %>
 </body>
 </html>
