@@ -19,8 +19,7 @@
                 <% if(locals.isLogged) { %>
                     <ul class="profileUser">
                         <li><a href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="<%= locals.userLogged.avatar %>" width="35"
-                                    style="border-radius: 100%;">
+                                <img src="<%= locals.userLogged.avatar %>" width="35" style="border-radius: 100%;">
                                 Hi <%= locals.userLogged.firstName %>
                             </a>
                         <li><a href="/users/profileUser"><i class="fa-regular fa-user"></i>Mi Perfil</a></li>
@@ -35,7 +34,9 @@
                             <li><a class="nav-button" href="/users/login">Iniciar Sesión </a></li>
                             <li><a class="nav-button" href="/users/register"> Registrarse </i></a></li>
                         </ul>
+                       
                         <%}%>
+                        
             </div>
         </nav>
         <div>

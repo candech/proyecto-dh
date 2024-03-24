@@ -7,15 +7,14 @@ const fs = require("fs");
 //const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
-    list: async(req, res)=>{
+    /* list: async(req, res)=>{
         try {
-            console.log('contraseña', bcryptjs.hashSync('pizzarock'))
          let users = await db.Usuarios.findAll()
         return res.render('users',{users})   
          } catch (error) {
             res.send(error.message)
          }
-    },
+    }, */
     detail: async(req,res)=>{
         try {
 		let user = await db.Usuarios.findByPk(req.params.id)
@@ -61,6 +60,7 @@ const usersController = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
+            typeId: 2,
             password: bcryptjs.hashSync(req.body.password, 10),
             avatar: req.file.filename,
 
