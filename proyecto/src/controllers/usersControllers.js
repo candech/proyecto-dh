@@ -151,6 +151,18 @@ const usersController = {
         req.session.destroy();
         return res.redirect('/')
     },
+    destroy: async(req, res) => {
+		let idUser = req.params.id;
+		try {
+			 await db.Usuarios.destroy({
+				where:  {id: idUser} 
+			 });
+             req.session.destroy();
+			 res.redirect('/')
+		} catch (error) {
+			res.send(error.message)
+		}
+	},
 }
 
 module.exports = usersController;

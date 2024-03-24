@@ -17,7 +17,9 @@
                     <h3>Apellido: <%= user.lastName%></h3>
                     <h3>Email: <%= user.email%></h3>
                 </div>
+                <% if(locals.isLogged) { %>
                 <a href="/users/edit/<%= user.id%>">Editar perfil</a>
+                <% } %>
             </section>
             <!-- footer -->
 	<%- include('./partials/footer') %>

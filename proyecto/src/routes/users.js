@@ -32,5 +32,7 @@ router.post('/login' , validateLoginForm, usersController.procesarLogin);
 router.get('/profileUser', authMiddleware, usersController.profileUser);
 router.get('/logout/', usersController.logout);
 
+/****** ELIMINACIÓN DE USUARIO  **********/
+router.delete('/:id', usersController.destroy)
 
 module.exports = router;

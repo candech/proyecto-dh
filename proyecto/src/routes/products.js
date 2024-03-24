@@ -27,7 +27,6 @@ router.get('/edit/:id', productsController.edit);
 router.put('/:id',  uploadFileProducts.single('image'), validateCreateForm, productsController.update);
 
 /****** ELIMINACIÓN DE PRODUCTOS  **********/
-router.get('/delete/:id', productsController.delete);
 router.delete('/:id', productsController.destroy)
 
 /********** muestra el carrito  **********/

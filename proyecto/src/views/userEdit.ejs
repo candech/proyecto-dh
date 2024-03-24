@@ -27,9 +27,10 @@
                 </div>
             </section>
         </form>
-        <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
+        <form action="/users/<%= user.id %>?_method=DELETE" method="POST" class="delete">
             <button type="submit" class="action-button delete">Eliminar cuenta</button>
         </form>
+        <script src="/frontValidations/alert.js"></script>
         <!-- footer -->
         <%- include('./partials/footer') %>
             <!-- /footer -->
