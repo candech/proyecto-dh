@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MediaCard from './MediaCard';
-import Categories from './Categories';
+//import Categories from './Categories';
 
 
     function Products() {
