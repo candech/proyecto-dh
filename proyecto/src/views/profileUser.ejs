@@ -8,13 +8,13 @@
 <!--vistas parciales-->
 <body>
     
-   <form action="/users/login" method="get">
+   <form action="/users/<%= user.id %>" method="get">
    
      <section>
          <h2> HOLA! <%=  user.firstName  %></h2>
         <div>
             <figure>
-                <img src="<%= user.avatar%>" alt="" width="100">
+                <img src="/img/users/<%= user.avatar%>" alt="" width="100">
             </figure>
         </div>
         <div >
@@ -22,10 +22,10 @@
             <%  if (user.type) {  %>
                 <p>Categoría: <%=  user.type %></p>
             <% }  %>
-            <p>Email: <a href="<%= user.email  %>" target="_blank"><%= user.email  %></a></p>
-            <!-- <div>
-                <a class="button" href="/users/<%=  user.id  %>">Ver detalle</a>
-            </div> -->
+            <p>Email: <a href="<%= user.email%>" target="_blank"><%= user.email  %></a></p>
+            <div>
+                <a class="button" href="/users/detail/<%=user.id%>">Ver detalle</a>
+            </div>
         </div>
      </section>
    </form>

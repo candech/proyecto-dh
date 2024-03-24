@@ -4,41 +4,39 @@
     </div>
     <div class="header-buttons">
         <nav>
-            <div class="product-nav">
-                <ul>
-                    <li><a class="nav-button" href="/products">Productos</a></li>
-                    <li><a class="nav-button" href="/products/create">Vender</a></li>
-                    <li><a class="nav-button" href="/products/productCart">Carrito <i
-                                class="fas fa-shopping-basket"></i></a></li>
+            <% if(locals.isLogged) { %>
+                <ul class="profileUser">
+                    <li>
+                        <a href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/img/users/<%= locals.userLogged.avatar %>" width="35" style="border-radius: 100%;">
+                            Hi <%= locals.userLogged.firstName %>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/users/profileUser"><i class="fa-regular fa-user"></i>Mi Perfil</a></li>
+                            <li><a href="/users/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </div>
+                <% if(locals.isAdmin) { %>
+                    <ul>
+                        <li><a class="nav-button" href="/products">Productos</a></li>
+                        <li><a class="nav-button" href="/products/create">Vender</a></li>
+                    </ul>
+                <% } else { %>
+                    <ul>
+                        <li><a class="nav-button" href="/products">Productos</a></li>
+                        <li><a class="nav-button" href="/products/productCart">Carrito <i class="fas fa-shopping-basket"></i></a></li>
+                    </ul>
+                <% } %>
+            <% } else { %>
+                <ul>
+                    <li><a class="nav-button" href="/users/login">Iniciar Sesión </a></li>
+                    <li><a class="nav-button" href="/users/register"> Registrarse </a></li>
+                    <li><a class="nav-button" href="/products">Productos</a></li>
+                </ul>
+            <% } %>
         </nav>
         
-        <nav>
-            <div class="user-nav">
-                <% if(locals.isLogged) { %>
-                    <ul class="profileUser">
-                        <li><a href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="<%= locals.userLogged.avatar %>" width="35" style="border-radius: 100%;">
-                                Hi <%= locals.userLogged.firstName %>
-                            </a>
-                        <li><a href="/users/profileUser"><i class="fa-regular fa-user"></i>Mi Perfil</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <a href="/users/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                    <% } else { %>
-                        <ul>
-                            <li><a class="nav-button" href="/users/login">Iniciar Sesión </a></li>
-                            <li><a class="nav-button" href="/users/register"> Registrarse </i></a></li>
-                        </ul>
-                       
-                        <%}%>
-                        
-            </div>
-        </nav>
         <div>
             <form action="/search" method="get">
                 <div class="input">

@@ -96,7 +96,7 @@ const usersController = {
                 if (req.body.recordarUsuario) {
                     res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2 })
                 }
-                return res.redirect('profileUser')
+                return res.redirect('/')
             }
             return res.render('login', {
                 errors: {
@@ -120,6 +120,32 @@ const usersController = {
             user: req.session.userLogged
         });
     },
+    edit: async(req, res) => {
+        try{
+			const user = await db.Usuarios.findByPk(req.params.id);
+            res.render('userEdit', {user})
+        }catch(error){
+            res.send(error.message)
+        }
+    },
+    update: async(req, res) => {
+		try {
+            console.log(req.body)
+			await db.Usuarios.update({
+                avatar: req.body.avatar,
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
+				email: req.body.email,
+			}, {
+				where: {
+					id: req.params.id
+				}
+			});
+			return res.redirect('/')
+		} catch (error) {
+			res.send(error.message)
+		}
+	},
     logout: (req, res) => {
         res.clearCookie('userEmail');
         req.session.destroy();

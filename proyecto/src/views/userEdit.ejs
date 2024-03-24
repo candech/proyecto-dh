@@ -1,0 +1,36 @@
+<%- include('./partials/head', {title: "Editar perfil"}) %>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+    <!-- Header -->
+    <form action="/users/<%= user.id %>/?_method=PUT" method="POST">
+        <section>
+            <h2>Editar perfil %></h2>
+            <div class="row product-detail">
+                <div class="">
+                        <div class="">
+                            <label for="avatar" class="">Avatar</label>
+                            <input type="file" id="avatar" name="avatar" value="<%= user.avatar %>">
+                        </div>
+                        <label for="firstName" class="">Nombre:</label>
+                        <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" class="form-input"></input>
+                    </div>
+                    <div class="">
+                        <label for="lastName" class="">Apellido</label>
+                        <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" class="form-input"></input>
+                    </div>
+                    <div>
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" value="<%= user.email %>">
+                    </div>
+                        <button type="submit" class="buy-now-button">Guardar cambios</button>
+                </div>
+            </section>
+        </form>
+        <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
+            <button type="submit" class="action-button delete">Eliminar cuenta</button>
+        </form>
+        <!-- footer -->
+        <%- include('./partials/footer') %>
+            <!-- /footer -->
+</body>

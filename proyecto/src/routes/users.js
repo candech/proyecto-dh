@@ -18,6 +18,9 @@ const {validateLoginForm} = require('../middleware/validationUsers')
 /* router.get('/', usersController.list) */
 router.get('/detail/:id', usersController.detail)
 
+/****** EDICIÓN DE USUARIO  **********/
+router.get('/edit/:id', usersController.edit); 
+router.put('/:id',  uploadFileUsers.single('avatar'), usersController.update);
 
 /********** registro  **********/
 router.get('/register', guestMiddleware, usersController.register);
