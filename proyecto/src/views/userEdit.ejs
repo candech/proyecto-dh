@@ -3,35 +3,61 @@
     <!-- Header -->
     <%- include('./partials/header') %>
     <!-- Header -->
-    <form action="/users/<%= user.id %>/?_method=PUT" method="POST">
+    <form class="form" action="/users/<%= user.id %>/?_method=PUT" method="POST" enctype="multipart/form-data">
         <section>
-            <h2>Editar perfil %></h2>
+            <h2>Editar perfil</h2>
             <div class="row product-detail">
                 <div class="">
-                        <div class="">
-                            <label for="avatar" class="">Avatar</label>
-                            <input type="file" id="avatar" name="avatar" value="<%= user.avatar %>">
+                    <label for="firstName" class="">Nombre:</label>
+                    <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" class="form-input"></input>
+                    <% if (locals.errors && errors.firstName) { %>
+                        <div class="error-message">
+                            <%= errors.firstName.msg %>
                         </div>
-                        <label for="firstName" class="">Nombre:</label>
-                        <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" class="form-input"></input>
-                    </div>
-                    <div class="">
+                        <% } %>
+                    <span class="error"></span>
+                </div>
+                <div class="">
                         <label for="lastName" class="">Apellido</label>
                         <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" class="form-input"></input>
+                        <% if (locals.errors && errors.lastName) { %>
+                            <div class="error-message">
+                                <%= errors.lastName.msg %>
+                            </div>
+                            <% } %>
+                        <span class="error"></span>
                     </div>
                     <div>
                         <label for="email">Correo Electrónico</label>
                         <input type="email" id="email" name="email" value="<%= user.email %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="error-message">
+                                <%= errors.email.msg %>
+                            </div>
+                            <% } %>
+                        <span class="error"></span>
                     </div>
-                        <button type="submit" class="buy-now-button">Guardar cambios</button>
+                    <div class="">
+                        <label for="avatar" class="">Imagen del producto:</label>
+                        <input type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png" value="<%= user.avatar %>">
+                        <img src="/img/users/<%= user.avatar %>" style="width: 10vw;">
+                        <% if (locals.errors && errors.avatar) { %>
+                            <div class="error-message">
+                                <%= errors.avatar.msg %>
+                            </div>
+                            <% } %>
+                        <span class="error"></span>
+                    </div>
+                        <button type="submit" class="btn btn-secondary">Guardar cambios</button>
                 </div>
             </section>
         </form>
-        <form action="/users/<%= user.id %>?_method=DELETE" method="POST" class="delete">
-            <button type="submit" class="action-button delete">Eliminar cuenta</button>
+        <form action="/users/<%= user.id %>?_method=DELETE" method="POST" class="delete" >
+            <button type="submit"  class="btn btn-secondary">Eliminar cuenta</button>
         </form>
-        <script src="/frontValidations/alert.js"></script>
         <!-- footer -->
         <%- include('./partials/footer') %>
-            <!-- /footer -->
+        <!-- /footer -->
+        <script src="/frontValidations/userEdit.js"></script>
+        <script src="/frontValidations/alert.js"></script>
 </body>

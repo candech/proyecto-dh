@@ -1,0 +1,49 @@
+<header>
+    <div class="logo">
+        <a href="/"><img src="/img/logo-pizzeria.jpg" alt="Pizza Rock Logo"></a>
+    </div>
+        <nav class="nav-content" class="container-fluid">
+            <div >
+                <% if(locals.isLogged) { %>
+                    <ul class="profileUser">
+                        <li>
+                            <a href="#" id="dropUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/img/users/<%= locals.userLogged.avatar %>" width="35" style="border-radius: 100%;">
+                                Hi <%= locals.userLogged.firstName %>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/users/profileUser"><i class="fa-regular fa-user"></i>Mi Perfil</a></li>
+                                <li><a href="/users/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <% if(locals.isAdmin) { %>
+                        <ul>
+                            <li><a class="nav-button" href="/products">Productos</a></li>
+                            <li><a class="nav-button" href="/products/create">Vender</a></li>
+                        </ul>
+                    <% } else { %>
+                        <ul>
+                            <li><a class="nav-button" href="/products">Productos</a></li>
+                            <li><a class="nav-button" href="/products/productCart">Carrito <i class="fas fa-shopping-basket"></i></a></li>
+                        </ul>
+                    <% } %>
+                <% } else { %>
+                    <ul>
+                        <li><a class="btn btn-outline-secondary" href="/users/login">Iniciar Sesión </a></li>
+                        <li><a class="btn btn-outline-secondary" href="/users/register"> Registrarse </a></li>
+                        <li><a class="btn btn-outline-secondary" href="/products">Productos</a></li>
+                    </ul>
+                <% } %>
+            </div>
+            <div>
+                <form action="/search" method="get">
+                    <div class="input">
+                        <input type="text" name="keyword" placeholder="Buscar ..." class="search-bar">
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="bnt-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </form>
+            </div>
+</header>

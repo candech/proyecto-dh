@@ -130,17 +130,20 @@ const usersController = {
     },
     update: async(req, res) => {
 		try {
-            console.log(req.body)
-			await db.Usuarios.update({
-                avatar: req.body.avatar,
-				firstName: req.body.firstName,
+            
+		const userUpdate = {
+                firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				email: req.body.email,
-			}, {
+                avatar: req.file.filename
+			}
+            console.log(req.file.filename)
+        await db.Usuarios.update(userUpdate,
+             {
 				where: {
 					id: req.params.id
 				}
-			});
+			})
 			return res.redirect('/')
 		} catch (error) {
 			res.send(error.message)

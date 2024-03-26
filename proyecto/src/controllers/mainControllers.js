@@ -4,7 +4,9 @@ const mainControllers = {
 //muestra todos los productos
     index: (req, res) =>{
         try {
-            db.Productos.findAll()
+            db.Productos.findAll({
+				limit: 5
+			})
             .then((products)=>{
                 return res.render('index',{products: products})
             })

@@ -11,14 +11,14 @@
             <section>
             <h2>Detalle del usuario <%= user.firstName %></h2>   
                 <div>
-                    <img src="/img/users/<%= user.avatar ? user.avatar : 'default.jpeg' %>">
+                    <img src="/img/users/<%= user.avatar ? user.avatar : 'default.jpeg' %>" style="width: 40%;">
                     
                     <h3>Nombre: <%= user.firstName%> </h3>
                     <h3>Apellido: <%= user.lastName%></h3>
                     <h3>Email: <%= user.email%></h3>
                 </div>
                 <% if(locals.isLogged) { %>
-                <a href="/users/edit/<%= user.id%>">Editar perfil</a>
+                <a href="/users/edit/<%= user.id%>" class="btn btn-secondary">Editar perfil</a>
                 <% } %>
             </section>
             <!-- footer -->

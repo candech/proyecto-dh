@@ -10,29 +10,20 @@
 			<!-- products -->
 			<h2>Todos los productos</h2>
 			<% for (product of products) { %>
-				<div>
-					<section>
-						<a href="/products/detail/<%= product.id %>">
-							<h2>
-								<%= product.name %>
-							</h2>
-							<figure class="product-box_image">
-								<img src="/img/products/<%= product.image %>" alt="imagen de producto"
-									style="width: 30vw;">
-								<!--<img src="/img/products/<%= product.image %>" alt="imagen de producto"> -->
-							</figure>
-							<article>
-								<h2>$<%= product.price %>
-								</h2>
-								<h2>
-									<%= product.description %>
-								</h2>
-								
-								<a class="product-add-to-cart-button" href="/cart">Agregar al Carrito <i class="fas fa-shopping-basket"></i></a> 
-							</article>
-						</a>
-					</section>
-				</div>
+				<a href="/products/detail/<%= product.id %>">
+				<div class="card" style="width: 18rem;">
+					<img src="/img/products/<%= product.image %>" class="card-img-top" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title"><%= product.name %></h5>
+					  <p class="card-text"><%= product.description %></p>
+					  <% if(locals.isLogged) { %>
+					  <a href="/products/productCart" class="btn btn-secondary">Añadir al carrito</a>
+					  <% } else { %>
+						<a href="/users/login" class="btn btn-secondary">Añadir al carrito</a>
+						<% } %>
+					</div>
+				  </div>
+				  </a>
 				<% } %>
 					<!-- footer -->
 					<%- include('partials/footer') %>

@@ -19,23 +19,26 @@ header {
     color: #000000;
     /* padding: 0 0 20px; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     width: 100%;
 }
 
-.header-content {
+
+.nav-content {
     display: flex;
-   align-items: center;
-    flex-grow: 1;/* Hace que el contenido del centro ocupe todo el espacio disponible */
-     justify-content: center; /* Centra las secciones de Menú, Acerca de nosotros y Contacto */
+    flex-wrap: nowrap;
+    display: inline-block;
+   /* align-items: center;
+    flex-grow: 1;Hace que el contenido del centro ocupe todo el espacio disponible 
+     justify-content: center;  Centra las secciones de Menú, Acerca de nosotros y Contacto  */
 }
 
-.header-buttons {
+/* .header-buttons {
     display: flex;
   gap: 10px;
-    margin-left: auto;  /* Mueve los botones de Carrito y Login hacia la derecha */
-}
+  margin-left: auto;  Mueve los botones de Carrito y Login hacia la derecha 
+} */
 
 header h1 {
     font-family: 'Permanent Marker', cursive;
@@ -53,21 +56,21 @@ header h1 {
 .user-nav .menu{
     background-color: #555;
 }
-.nav-button {
-    background-color: #333; /* Fondo del botón */
-    color: #fff;
-    border: none;
-    border-radius: 4px; /* Esquinas redondeadas */
-    padding: 8px 8x;
+/* .nav-button {
+    color: black;
+    border-radius: 10px; 
+    border-color: black;
+    padding: 9px 9x;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
     margin:2px;
-    transition: background-color 0.3s ease; /* Efecto de transición */
+    transition: background-color 0.3s ease;
 }
 
 .nav-button:hover {
-    background-color: #555; /* Cambia de color al pasar el mouse */
-}
+    background-color: rgb(151, 147, 147);
+    color: white; 
+} */
 
 /* .banner {
     padding: 5px;
@@ -225,5 +228,7 @@ footer {
     opacity: 0.7;
 }
 
-
+.error-404{
+    width: 70vw;
+}
 

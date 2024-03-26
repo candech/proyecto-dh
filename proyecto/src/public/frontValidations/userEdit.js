@@ -38,19 +38,6 @@ const validations = [
         ]
     },
     {
-        inputName: "password",
-        validations: [
-            {
-                validator: isEmpty,
-                errorMsg: "Este campo es obligatorio"
-            },
-            {
-                validator: (input) => input.value.length >= 8,
-                errorMsg: "La contraseña debe tener un minimo de 8 caracteres"
-            }
-        ]
-    },
-    {
         inputName: "avatar",
         validations: [
             {
@@ -87,7 +74,6 @@ window.addEventListener("load", function () {
             element.parentElement.classList.remove("is-invalid");
             element.parentElement.querySelector(".error").innerHTML = "";
         });
-        
         if (errores.length == 0) {
             form.submit();
         } else {

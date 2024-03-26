@@ -43,7 +43,8 @@
 						<% allCategory.forEach(category => { %>
 							<option value="<%= category.id %>"
 					<%= locals.old && (category.id === old.category.id) ? 'selected' : null %>>
-								<%= category.label %></option>
+								<%= category.label %>
+							</option>
 							<% }); %>
 					</select>
 					<% if (locals.errors && errors.category) { %>

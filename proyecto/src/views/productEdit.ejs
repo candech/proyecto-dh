@@ -6,7 +6,7 @@
             <!-- Header -->
 
 
-            <form action="/products/<%= product.id %>/?_method=PUT" method="POST">
+            <form class="form" action="/products/<%= product.id %>/?_method=PUT" method="POST"  enctype="multipart/form-data">
                 <section>
                     <h2>Estás editando: <%= product.name %></h2>
                     <div class="row product-detail">
@@ -14,39 +14,73 @@
                             <label for="name" class="">Nombre del producto:</label>
                             <input type="text" id="name" name="name" value="<%= product.name %>" placeholder=""
                                 class="form-input"></input>
+                                <% if (locals.errors && errors.name) { %>
+                                    <div class="error-message">
+                                        <%= errors.name.msg %>
+                                    </div>
+                                    <% } %>
+                                <span class="error"></span>
                         </div>
                         <div class="">
                             <label for="price" class="">Precio del producto:</label>
                             <input type="text" id="price" name="price" value="<%= product.price %>"
-                                placeholder="Ej: 5678" class="form-input"></input>
+                                placeholder="Ej: 5678" class="form-input"> </input>
+                                <% if (locals.errors && errors.price) { %>
+                                    <div class="error-message">
+                                        <%= errors.price.msg %>
+                                    </div>
+                                    <% } %>
+                                <span class="error"></span>
                         </div>
                         <div class="">
                             <label for="category" class="">Categoría:</label>
-                            <select name="category" id="category" class="form-input">
-                                <% allCategory.forEach(category=> { %>
+                            <select name="category" id="category" class="form-input" 
+                            <%= locals.errors && errors.category ? 'is-invalid' : null  %> value="<%= product.categoryId %>">
+                            <option value="<%= product.categoryId %>">Elegí una categoría</option>
+                                <% allCategory.forEach(category => { %>
                                     <option value="<%= category.id %>">
                                         <%= category.label %>
                                     </option>
                                     <% }); %>
                             </select>
+                            <% if (locals.errors && errors.category) { %>
+                                <div class="error-message">
+                                    <%= errors.category.msg %>
+                                </div>
+                                <% } %>
+                                <span class="error"></span>
                         </div>
                         <div class="">
                             <label for="description" class="">Descipción:</label>
                             <textarea name="description" id="description"class="form-input"><%= product.description %> </textarea>
+                            <% if (locals.errors && errors.description) { %>
+                                <div class="error-message">
+                                    <%=  errors.description.msg %>
+                                </div>
+                                <% } %>
+                            <span class="error"></span>
                         </div>
                             <div class="">
                                 <label for="image" class="">Imagen del producto:</label>
-                                <input type="file" id="image" name="image">
+                                <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png">
+                                <img src="/img/products/<%= product.image %>" style="width: 10vw;">
+                                <% if (locals.errors && errors.image) { %>
+                                    <div class="error-message">
+                                        <%= errors.image.msg %>
+                                    </div>
+                                    <% } %>
+                                <span class="error"></span>
                             </div>
                             <button type="submit" class="buy-now-button">Guardar producto</button>
                     </div>
                 </section>
             </form>
             <form action="/products/<%= product.id %>?_method=DELETE" method="POST" class="delete">
-                <button type="submit" class="action-button delete">Eliminar producto</button>
+                <button type="submit" class="delete">Eliminar producto</button>
             </form> 
             <!-- footer -->
             <%- include('./partials/footer') %>
                 <!-- /footer -->
-                <script src="/frontValidations/alert.js"></script>
+	<script src="/frontValidations/products.js"></script>
+    <script src="/frontValidations/alert.js"></script>
     </body>

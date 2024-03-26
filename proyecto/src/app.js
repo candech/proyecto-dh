@@ -37,7 +37,6 @@ app.use('/producto', express.static(path.resolve(__dirname, './views/producto'))
 const mainRouter = require('./routes/main'); // Rutas main
 const productsRouter = require('./routes/products'); // Rutas /products
 const usersRouter = require('./routes/users'); //Rutas /users
-/* var logMiddleware = require('./middleware/logMiddleware'); */
 
 /* app.get('/users/', (req, res) => {
   res.redirect('/users/')
@@ -59,17 +58,18 @@ app.use('/api/products', productsApiRouter)
 app.use('/api/users', usersApiRoutes)
 
 // ************ error handler ************
-/*app.use((err, req, res, next) => {
+app.use((req, res, next) => res.status(404).render('not-found'))
+/* app.use((err, req, res, next) => { */
     // set locals, only providing error in development
-    res.locals.message = err.message;
+    /* res.locals.message = err.message;
     res.locals.path = req.path;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
+   */
     // render the error page
-    res.status(err.status || 500);
+   /*  res.status(err.status || 500);
     res.render('error');
-  });*/
-
+  });
+ */
 
 // ************ Puerto ************
 app.listen(PORT, () => {

@@ -12,7 +12,7 @@ module.exports = {
       email: 'cande@admin.com',
       password: '$2a$10$.Q4KCcsQU8XhbbQBpGi9ru4ljAiZv5bEmSemwKs5rTL17oBiDA3sK',
       typeId: 1,
-      avatar: 'https://www.nicepng.com/png/detail/348-3488420_this-is-pizza-steve-of-of-cartoon-network.png',
+      avatar: 'default.jpeg',
     },
       {id: 2,
       firstName: 'jennifer',
@@ -20,7 +20,7 @@ module.exports = {
       email: 'jennifer@admin.com',
       password: '$2a$10$.Q4KCcsQU8XhbbQBpGi9ru4ljAiZv5bEmSemwKs5rTL17oBiDA3sK',
       typeId: 1,
-      avatar: faker.image.avatar(),
+      avatar: 'default.jpeg',
     },
     ]
        Array(20)

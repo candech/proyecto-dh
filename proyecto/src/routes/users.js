@@ -12,19 +12,22 @@ const {uploadFileUsers} = require('../middleware/multerMiddleware')
 
 //Validaciones
 const {validateRegisterForm} = require('../middleware/validationUsers');
-const {validateLoginForm} = require('../middleware/validationUsers')
+const {validateLoginForm} = require('../middleware/validationUsers');
+const {validateEditForm} = require('../middleware/validationUsers');
+
 
 
 /* router.get('/', usersController.list) */
 router.get('/detail/:id', usersController.detail)
 
-/****** EDICIÓN DE USUARIO  **********/
-router.get('/edit/:id', usersController.edit); 
-router.put('/:id',  uploadFileUsers.single('avatar'), usersController.update);
 
 /********** registro  **********/
 router.get('/register', guestMiddleware, usersController.register);
 router.post('/register', uploadFileUsers.single('avatar'), validateRegisterForm, usersController.procesarRegister);
+
+/****** EDICIÓN DE USUARIO  **********/
+router.get('/edit/:id', usersController.edit); 
+router.put('/:id',  uploadFileUsers.single('avatar'), validateEditForm, usersController.update);
 
 /********** login **********/
 router.get('/login',  guestMiddleware, usersController.login);

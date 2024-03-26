@@ -78,17 +78,20 @@ const productsControllers ={
 
 	update: async(req, res) => {
 		try {
-			await db.Productos.update({
+			
+			const productUpdate = {
 				name: req.body.name,
 				price: req.body.price,
 				categoryId: req.body.category,
 				description: req.body.description,
-			}, {
+				image: req.file.filename
+		}
+		await db.Productos.update(productUpdate,{
 				where: {
 					id: req.params.id
 				}
 			});
-			return res.redirect('/')
+		return res.redirect('/')
 		} catch (error) {
 			res.send(error.message)
 		}
