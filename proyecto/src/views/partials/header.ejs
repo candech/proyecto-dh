@@ -17,10 +17,11 @@
                         </ul>
                     </li>
                 </ul>
-                <% if(locals.isAdmin) { %>
+                <% if(locals.userLogged.typeId === 1) { %>
                     <ul>
                         <li><a class="nav-button" href="/products">Productos</a></li>
                         <li><a class="nav-button" href="/products/create">Vender</a></li>
+                        <li> <a class="nav-button" href="/products/delete"></a> </li>
                     </ul>
                 <% } else { %>
                     <ul>

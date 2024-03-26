@@ -17,9 +17,9 @@ async function userLoggedMiddleware(req, res, next) {
 
         if (user) {
             // Verifica el tipo de usuario
-            if (user.id === 1) {
+            if (user.typeId === 1) {
                 res.locals.isAdmin = true; // Marca al usuario como administrador
-            } else if (user.id === 2) {
+            } else if (user.typeId === 2) {
                 res.locals.isConsumer = true; // Marca al usuario como consumidor
             }
         }

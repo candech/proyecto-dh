@@ -26,14 +26,14 @@ header {
 
 .header-content {
     display: flex;
-   align-items: center;
+    align-items: center;
     flex-grow: 1;/* Hace que el contenido del centro ocupe todo el espacio disponible */
-     justify-content: center; /* Centra las secciones de Menú, Acerca de nosotros y Contacto */
+    justify-content: center; /* Centra las secciones de Menú, Acerca de nosotros y Contacto */
 }
 
 .header-buttons {
     display: flex;
-  gap: 10px;
+    gap: 10px;
     margin-left: auto;  /* Mueve los botones de Carrito y Login hacia la derecha */
 }
 

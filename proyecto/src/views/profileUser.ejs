@@ -19,8 +19,8 @@
         </div>
         <div >
             <h3><%=  user.firstName %> <%= user.lastName %></h3>
-            <%  if (user.type) {  %>
-                <p>Categoría: <%=  user.type %></p>
+            <%  if (user.typeId) {  %>
+                <p>Categoría: <%=  user.typeId %></p>
             <% }  %>
             <p>Email: <a href="<%= user.email%>" target="_blank"><%= user.email  %></a></p>
             <div>
