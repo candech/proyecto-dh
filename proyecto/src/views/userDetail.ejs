@@ -25,7 +25,9 @@
                     </h3>
 
                 </div>
+                <% if(locals.isLogged) { %>
                 <a href="/users/edit/<%= user.id%>">Editar perfil</a>
+                <% } %>
             </section>
             <!-- footer -->
 	<%- include('./partials/footer') %>

@@ -93,15 +93,6 @@ const productsControllers ={
 			res.send(error.message)
 		}
 	},
-	delete: async(req, res) =>{
-		const idProd = req.params.id
-		try {
-			const prodToDelete = await db.Productos.findByPk(idProd)
-			res.render('productDelete', {product: prodToDelete})
-		} catch (error) {
-			res.send(error.message)
-		}
-	},
 	destroy: async(req, res) => {
 		let idProd = req.params.id;
 		try {

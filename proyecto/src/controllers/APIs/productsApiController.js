@@ -20,7 +20,7 @@ const productsApiController = {
                     category: product.category,
                     description: product.description,
                     image: `http://localhost:3002/img/products/${product.image}`,
-                    detail: `http://localhost:3002/products/${product.detail}`
+                    detail: `http://localhost:3002/products/detail/${product.id}`
                 }
             })
             console.log(countByCategory)
