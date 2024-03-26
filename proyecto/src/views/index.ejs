@@ -11,20 +11,18 @@
         <h2>Carta</h2>
     
     <section >                
-        <h2 class="subtitulo">MENU</Menu></h2>
+        <h2 class="subtitulo">CARTA</Menu></h2>
 <% for (product of products) { %>
-        <div>
-            <section id="menu">
+        <div class="card-products">
                 <a href="/products/detail/<%= product.id %>">
-                    <h2><%= product.name %></h2>
-                    <figure class="product-box_image">
-                        <img src="/img/products/<%= product.image %>" class="img-fluid" style="width: 30vw;" alt="imagen de producto">
-                    </figure>
-                    <article >
-                        <h2>$<%= product.price %></h2>
-                    </article>
-                </a>
-            </section>
+				<div class="card" style="width: 18rem;">
+					<img src="/img/products/<%= product.image %>" class="card-img-top" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title"><%= product.name %></h5>
+					  <p class="card-text"> $<%= product.price%></p>
+					</div>
+				  </div>
+				  </a>
         </div>
         <% } %>
 <a href="/products" class="btn btn-outline-secondary" > Ver todos los productos</a>

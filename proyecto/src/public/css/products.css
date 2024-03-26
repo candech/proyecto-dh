@@ -1,5 +1,11 @@
-/*ESTILOS DEL CARRITO*/
+.card-products{
+    display: flex;
+}
 
+/*ESTILOS DEL CARRITO*/
+body{
+    background-color: #ebebeb;
+}
 .box-4{
     margin-left: 5px;
     padding-right: 30px ;

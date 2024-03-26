@@ -30,7 +30,6 @@ router.get('/edit/:id',userLoggedMiddleware, productsController.edit);
 router.put('/:id',  uploadFileProducts.single('image'), validateCreateForm, productsController.update);
 
 /****** ELIMINACIÓN DE PRODUCTOS  **********/
-router.get('/delete/:id', userLoggedMiddleware, productsController.delete);
 router.delete('/:id', productsController.destroy)
 
 /********** muestra el carrito  **********/

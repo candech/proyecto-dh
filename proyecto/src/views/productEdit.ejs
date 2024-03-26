@@ -71,13 +71,13 @@
                                     <% } %>
                                 <span class="error"></span>
                             </div>
-                            <button type="submit" class="buy-now-button">Guardar producto</button>
-                    </div>
-                </section>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">Guardar producto</button>
             </form>
             <form action="/products/<%= product.id %>?_method=DELETE" method="POST" class="delete">
-                <button type="submit" class="delete">Eliminar producto</button>
+                <button type="submit" class="btn btn-secondary">Eliminar producto</button>
             </form> 
+        </section>
             <!-- footer -->
             <%- include('./partials/footer') %>
                 <!-- /footer -->
