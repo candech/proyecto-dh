@@ -16,7 +16,13 @@
                     <h3>Nombre: <%= user.firstName%> </h3>
                     <h3>Apellido: <%= user.lastName%></h3>
                     <h3>Email: <%= user.email%></h3>
-                   
+                    
+                    <h3>Categoria: <%if(locals.isAdmin){%>
+                        <h3>Administrador</h3>
+                        <% } else { %>
+                            <h3>Consumidor</h3>
+                        <% } %>
+                    </h3>
                 </div>
                 <% if(locals.isLogged) { %>
                 <a href="/users/edit/<%= user.id%>" class="btn btn-secondary">Editar perfil</a>

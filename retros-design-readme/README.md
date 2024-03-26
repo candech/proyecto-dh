@@ -23,3 +23,8 @@ Nuestra inspiración fue en gran medida: La app PedidosYa (La estética), https:
     SPRINT 7:
     Link del tablero actualizado
     https://trello.com/b/O3KTPp7h/sprints
+
+    SPRINT 8:
+    Link del tablero actualizado
+    https://trello.com/b/O3KTPp7h/sprints
+

@@ -19,14 +19,14 @@ router.get('/',userLoggedMiddleware,  productsController.products);
 
 
 /********** CREACIÓN DE PRODUCTOS  **********/
-router.get('/create', userLoggedMiddleware, productsController.create)
+router.get('/create', productsController.create)
 router.post('/', uploadFileProducts.single('image'), validateCreateForm, productsController.store)
 
 /********** DETALLE DE PRODUCTO  **********/
-router.get('/detail/:id',userLoggedMiddleware, productsController.detail)
+router.get('/detail/:id', productsController.detail)
 
 /****** EDICIÓN DE PRODUCTOS  **********/
-router.get('/edit/:id',userLoggedMiddleware, productsController.edit); 
+router.get('/edit/:id', productsController.edit); 
 router.put('/:id',  uploadFileProducts.single('image'), validateCreateForm, productsController.update);
 
 /****** ELIMINACIÓN DE PRODUCTOS  **********/

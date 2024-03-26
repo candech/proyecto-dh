@@ -13,11 +13,14 @@
                 <h2><%= product.name %></h2>   
                 <div class="img-product">
                     <img src="/img/products/<%= product.image %>" style="width: 30vw;" alt="img-product-1">
+                    <h3><%= product.name%></h3>
                     <p>$<%= product.price%></p>
                     <p><%= product.description%></p>
                     <% if(locals.isLogged) { %>
                         <a href="/products/productCart" class="btn btn-secondary">Añadir al carrito</a>
-                    <% } %>
+                    <% } else {%>
+                        <a href="/users/login" class="btn btn-secondary">Añadir al carrito</a>
+                   <% } %>
                         <% if(locals.isLogged && locals.isAdmin) { %>
                 <a href="/products/edit/<%= product.id%>" class="btn btn-secondary">Editar producto</a>
                         <% } %>

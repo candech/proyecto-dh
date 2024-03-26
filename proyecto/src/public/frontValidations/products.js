@@ -86,6 +86,9 @@ window.addEventListener("load", function () {
             element.parentElement.querySelector(".error").innerHTML = "";
         });
         // Validación adicional para el select
+        //selecciona categoria del formulario, se pregunta si el elemento seleccionado es igual a 0
+        //lo que significaria que no se ha seleccionado nada y se agregan las clases correspondientes con los errores
+        //al elemento padre, pero si no es asi las borra y agrega la clase de que es valido
         const selectElement = form["category"];
         if (selectElement.selectedIndex === 0) {
             errores.push("Selecciona una categoría");
