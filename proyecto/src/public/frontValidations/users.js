@@ -1,4 +1,5 @@
 const isEmpty = (input) => input.value && input.value.trim() !== "";
+const isEmail = (input) => input.value.includes('@');
 
 const validations = [
     {
@@ -33,6 +34,10 @@ const validations = [
             {
                 validator: isEmpty,
                 errorMsg: "Este campo es obligatorio"
+            },
+            {
+                validator: isEmail,
+                errorMsg: "debes ingresar un email valido"
             }
            
         ]
