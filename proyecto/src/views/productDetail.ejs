@@ -20,13 +20,17 @@
                         class="fas fa-shopping-basket"></i></a>
                         <% if(locals.isLogged && locals.isAdmin) { %>
                 <a href="/products/edit/<%= product.id%>">EDITAR PRODUCTO</a>
-                <% } %>
+                <a href="/products/delete/<%= product.id%>">ELIMINAR PRODUCTO</a>
+                
+                        <% } %>
+                
                 </div>
             </section>
             <!-- footer -->
 	<%- include('./partials/footer') %>
     
 	<!-- /footer -->
+    
     </body>
 
 </html>
