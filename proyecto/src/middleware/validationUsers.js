@@ -26,6 +26,7 @@ const validateLoginForm = [
   body('email').notEmpty().bail().isEmail(),
   body('password').notEmpty().bail(),
 ]
+
 const validateEditForm = [
   body('firstName').notEmpty().isLength({ min: 2 }),
   body('lastName').notEmpty().isLength({ min: 2 }),

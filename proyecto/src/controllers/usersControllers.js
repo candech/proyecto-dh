@@ -4,17 +4,9 @@ const { error } = require('console');
 const db = require('../database/models');
 const path = require("path");
 const fs = require("fs");
-//const { ResultWithContextImpl } = require('express-validator/src/chain');
 
 const usersController = {
-    /* list: async(req, res)=>{
-        try {
-         let users = await db.Usuarios.findAll()
-        return res.render('users',{users})   
-         } catch (error) {
-            res.send(error.message)
-         }
-    }, */
+    
     detail: async(req,res)=>{
         try {
 		let user = await db.Usuarios.findByPk(req.params.id)
@@ -35,7 +27,6 @@ const usersController = {
         if (resultValidation.errors.length > 0) {
             const deletedFile = path.resolve(__dirname, "../public/img/users", req.file.filename)
 				fs.unlinkSync(deletedFile)
-            // aqui eliminar img si hay errores, buscar nombre de img en req y utilizar metodo fs.unliksync para eliminar img
             return res.render('register', {
                 errors: resultValidation.mapped(),
                 old: req.body,
@@ -74,13 +65,6 @@ const usersController = {
         return res.render('login');
     },
     procesarLogin: async(req, res) => {
-       /*  const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-            return res.render('profileUser', {
-                errors: resultValidation.mapped(),
-                old: req.body,
-            })
-        } */
         let userInDB = await db.Usuarios.findOne({
             where: {
                 email: req.body.email
@@ -115,7 +99,6 @@ const usersController = {
         })
     },
     profileUser: (req, res) => {
-        //console.log(req.cookies.userEmail)
         res.render('profileUser', {
             user: req.session.userLogged
         });

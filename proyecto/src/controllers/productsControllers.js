@@ -75,7 +75,6 @@ const productsControllers ={
             res.send(error.message)
         }
 	},
-
 	update: async(req, res) => {
 		try {
 			

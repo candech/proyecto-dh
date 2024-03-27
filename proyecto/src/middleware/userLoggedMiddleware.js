@@ -27,20 +27,10 @@ async function userLoggedMiddleware(req, res, next) {
         res.locals.isLogged = true; // Indica que hay un usuario loggeado
         res.locals.userLogged = req.session.userLogged; // Almacena los datos del usuario loggeado
     }
-        /* res.locals.isLogged = false;
-        if (req.session.userLogged) {
-            res.locals.isLogged = true;
-            res.locals.userLogged = req.session.userLogged;
-        }  */
+        
     } catch (error) {
         console.log(error.message)
     }
-    /* let emailInCookie = req.cookies.userToLogin;
-    let userFromCookie = userToLogin.findByField('email', emailInCookie);  */
-
-   /*  if(userFromCookie) {
-        req.session.userLogged = userFromCookie;
-    } */
 
     next();
 }

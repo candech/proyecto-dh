@@ -17,13 +17,6 @@ function Users() {
   };
   useEffect(() => {
     console.log("%cse monto el componente", "color: yellow");
-    /*  fetch('/api/products')
-                .then((respuesta )=> respuesta.json())
-                .then((data) => {
-                    console.log(data);
-                    setTotalProducts(data.data)
-                })
-                .catch((error) => console.log(error)); */
     apiUsers();
   }, []);
 
@@ -32,9 +25,7 @@ function Users() {
   }, [userList]);
   return (
     <React.Fragment>
-      {/*<!-- Content Row -->*/}
-      {/*  <div className="row">
-        </div> */}
+      
 
       <div className="card shadow mb-4">
         <div className="card-body">

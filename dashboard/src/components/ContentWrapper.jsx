@@ -29,7 +29,7 @@ function ContentWrapper() {
               element={<LastProductInDb/>}
             ></Route>
             <Route path="/users" exact={true} element={<Users/>}></Route>
-            <Route component={NotFound} />
+            <Route path="*" component={<NotFound/>} />
           </Routes>
           
           <Footer />
