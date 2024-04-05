@@ -1,5 +1,5 @@
 import React from "react";
-import ChartRow from "./ChartRow.js";
+import ChartRow from "./ChartRow.jsx";
 import { useEffect, useState } from "react";
 
 function Users() {
